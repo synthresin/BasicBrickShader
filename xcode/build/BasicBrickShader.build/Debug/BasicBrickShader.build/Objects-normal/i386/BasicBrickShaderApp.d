@@ -461,4 +461,4 @@ dependencies: \
   ../../../include/cinder/app/ResizeEvent.h \
   ../../../include/cinder/Timer.h ../../../include/cinder/Function.h \
   ../../../include/cinder/app/TouchEvent.h \
-  ../../../include/cinder/Camera.h
+  ../../../include/cinder/Camera.h ../../../include/cinder/gl/GlslProg.h
