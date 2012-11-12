@@ -37,3 +37,192 @@ void main()
     MCposition = gl_Vertex.xy;  // 벽돌을 그리기 위해 필요한 자료.
     gl_Position = ftransform(); // 마지막 처리~
 }
+
+void process() {
+    vec4 ecPosition;
+    vec3 ecPosition3;
+    vec4 normal;
+    vec4 amb;
+    vec4 diff;
+    vec4 spec;
+    vec3 color;
+    
+    bool SeparateSpecular = true;
+    int NumEnabledLights = 5;
+    
+    gl_Position = ftransform();
+    
+    ecPosition = gl_ModelViewMatrix * gl_Vertex;
+    ecPosition3 = (vec3(ecPosition)) / ecPosition.w;
+    
+    normal = gl_NormalMatrix * gl_Normal;
+    normal = normalize(normal);
+    normal = normal * gl_NormalScale;
+    
+    gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+    
+    eye = -normalize(ecPosition3);
+    
+    // 인텐시티 어큐뮬레이터
+    amb = vec4(0.0);
+    spec = vec4(0.0);
+    diff = vec4(0.0);
+    
+    for (int i = 0; i < NumEnabledLights; i++) {
+        if (gl_LightSource[i].position.w == 0.0) {
+            DirectionalLight(i, normal, amb, diff, spec);
+        } else if (gl_LightSource[i].spotCutoff == 180.0) {
+            PointLight(i, eye, ecPosition3, normal, amb, diff, spec);
+        } else {
+            SpotLight(i, eye, ecPosition3, normal, amb, diff, spec);
+        }
+    }
+    
+    color = gl_FrontLightModelProduct.sceneColor +
+            amb * gl_FrontMaterial.ambient +
+            diff * gl_FrontMaterial.diffuse;
+    
+    if (SeparateSpecular) {
+        gl_FrontSecondaryColor = vec4(spec * gl_FrontMaterial.specular, 1.0);
+    } else {
+        color += spec * gl_FrontMaterial.specular;
+    }
+    
+    gl_FrontColor = color;
+    
+    // 뒷면 라이팅
+    
+    normal = -normal;
+    
+    // 인텐시티 어큐뮬레이터
+    amb = vec4(0.0);
+    spec = vec4(0.0);
+    diff = vec4(0.0);
+    
+    for (int i = 0; i < NumEnabledLights; i++) {
+        if (gl_LightSource[i].position.w == 0.0) {
+            DirectionalLight(i, normal, amb, diff, spec);
+        } else if (gl_LightSource[i].spotCutoff == 180.0) {
+            PointLight(i, eye, ecPosition3, normal, amb, diff, spec);
+        } else {
+            SpotLight(i, eye, ecPosition3, normal, amb, diff, spec);
+        }
+    }
+    
+    color = gl_BackLightModelProduct.sceneColor +
+    amb * gl_BackMaterial.ambient +
+    diff * gl_BackMaterial.diffuse;
+    
+    if (SeparateSpecular) {
+        gl_BackSecondaryColor = vec4(spec * gl_BackMaterial.specular, 1.0);
+    } else {
+        color += spec * gl_BackMaterial.specular;
+    }
+    
+    gl_BackColor = color;
+    
+}
+
+void DirectionalLight(in int i, in vec3 normal, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
+{
+    // 모두다 eye coordinate 가 되야겠지...
+    float   nDotVP;   // 노멀과 빛 방향의 내적
+    float   nDotHV;   // 노멀과 라이트 하프 벡터
+    float   pf;       // 파워 팩터
+    
+    nDotVP = max( 0.0, dot( normal, normalize( vec3(gl_LightSource[i].position) ) ) );
+    nDotHV = max( 0.0, dot( normal, vec3(gl_LightSource[i].halfVector) ) );
+    
+    if (nDotVP == 0.0) {
+        pf == 0.0;
+    } else {
+        pf = pow( nDotHV, gl_FrontMaterial.shininess );
+    }
+    
+    ambient += gl_LightSource[i].ambient;
+    diffuse += gl_LightSource[i].diffuse * nDotVP;
+    specular += gl_LightSource[i].specular * pf;
+}
+
+void PointLight(in int i, in vec3 eye, in vec3 ecPosition3, in vec3 normal, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular) // eye 는 viewing direction
+{
+    float   nDotVP;         // 노멀과 빛 방향의 내적
+    float   nDotHV;         // 노멀과 빛의 반사벡터
+    float   pf;             // 파워팩터
+    float   attenuation;    // 
+    float   d;              // 표면에서 빛까지의 거리
+    vec3    VP;             // 빛 방향
+    vec3    halfVector;     // 빛의 반사 벡터
+    
+    VP = vec3(gl_LightSource[i].position) - ecPosition3;// 서피스에서 라이트 소스 위치까지
+    
+    d = length(VP);
+    
+    VP = normalize(VP);
+    
+    attenuation = 1.0 / (gl_LightSource[i].constantAttenuation + gl_LightSource[i].linearAttenuation * d + gl_LightSource[i].quadraticAttenuation * d * d);
+    
+    halfVector = normalize(VP + eye);
+    
+    nDotVP = max( 0.0, dot( normal, VP ) );
+    nDotHV = max( 0.0, dot( normal, halfVector ) );
+    
+    if (nDotVP == 0.0) {
+        pf == 0.0;
+    } else {
+        pf = pow( nDotHV, gl_FrontMaterial.shininess );
+    }
+    
+    ambient += gl_LightSource[i].ambient * attenuation;
+    diffuse += gl_LightSource[i].diffuse * nDotVP * attenuation;
+    specular += gl_LightSource[i].specular * pf * attenuation;
+}
+
+void SpotLight(in int i, in vec3 eye, in vec3 ecPosition3, in vec3 normal, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
+{
+    float   nDotVP;         // 노멀과 빛 방향의 내적
+    float   nDotHV;         // 노멀과 빛의 반사벡터
+    float   pf;             // 파워팩터
+    float   spotDot;
+    float   spotAttenuation;
+    float   attenuation;    //
+    float   d;              // 표면에서 빛까지의 거리
+    vec3    VP;             // 표면에서 빛 방향
+    vec3    halfVector;     // 빛의 반사 벡터
+    
+    VP = vec3(gl_LightSource[i].position) - ecPosition3;
+    
+    d = length(VP);
+    
+    VP = normalize(VP);
+    
+    attenuation = 1.0 / (gl_LightSource[i].constantAttenuation + gl_LightSource[i].linearAttenuation * d + gl_LightSource[i].quadraticAttenuation * d * d);
+    
+    // 스팟라이트 관련부분
+    spotDot = dot(-VP, normalize(gl_LightSource[i].spotDirection) );
+    
+    if (spotDot < gl_LightSource[i].spotCosCutoff) {
+        spotAttenuation = 0.0;
+    } else {
+        spotAttenuation = pow(spotDot, gl_LightSource[i].spotExponent);
+    }
+    
+    attenuation *= spotAttenuation;
+    
+    // 스팟 라이트 관련 부분 끝.
+    
+    halfVector = normalize(VP + eye);
+    
+    nDotVP = max( 0.0, dot( normal, VP ) );
+    nDotHV = max( 0.0, dot( normal, halfVector ) );
+    
+    if (nDotVP == 0.0) {
+        pf == 0.0;
+    } else {
+        pf = pow( nDotHV, gl_FrontMaterial.shininess );
+    }
+    
+    ambient += gl_LightSource[i].ambient * attenuation;
+    diffuse += gl_LightSource[i].diffuse * nDotVP * attenuation;
+    specular += gl_LightSource[i].specular * pf * attenuation;
+}

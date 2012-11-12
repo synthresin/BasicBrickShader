@@ -37,3 +37,15 @@ void main()
     MCposition = gl_Vertex.xy;  // 벽돌을 그리기 위해 필요한 자료.
     gl_Position = ftransform(); // 마지막 처리~
 }
+
+void DirectionalLight(in int i, in vec3 normal, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
+{
+    // 모두다 eye coordinate 가 되야 겠지...
+    float   nDotVP;   // 노멀과 빛 방향의 내적
+    float   nDotHV;   // 노멀과 라이트 하프 벡터
+    float   pf;       // 파워 팩터
+    
+    nDotVP = max( 0.0, dot( normal, normalize( vec3(gl_LightSource[0].position) ) ) );
+    nDotHV = max( 0.0, dot( normal, vec3(gl_LightSource[0].halfVector) ) );
+    
+}
