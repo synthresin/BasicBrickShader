@@ -72,7 +72,7 @@ void BasicBrickShaderApp::draw()
     mShader.bind();
     mShader.uniform("LightPosition", mLightPos);
     mShader.uniform("EarthTexture", 0);
-    gl::drawSphere(Vec3f::zero(), 50.0f);
+    gl::drawSphere(Vec3f::zero(), 70.0f);
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     mShader.unbind();
 
