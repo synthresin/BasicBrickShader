@@ -43,6 +43,8 @@ void BasicBrickShaderApp::setup()
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
     
+
+    
     mTex = gl::Texture( loadImage( loadResource( "earth_tex.jpg" ) ) );
     
 }
@@ -64,7 +66,7 @@ void BasicBrickShaderApp::update()
 
 void BasicBrickShaderApp::draw()
 {
-    mTex.enableAndBind();
+    mTex.bind(0);
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();

@@ -4,9 +4,9 @@ r1
 cCheck dependencies
 cProcessInfoPlistFile /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Info.plist Info.plist
 cCpResource brickVert.glsl ./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl
+cCpResource CinderApp.icns ./build/Debug/BasicBrickShader.app/Contents/Resources/CinderApp.icns
 cCpResource earth_tex.jpg ./build/Debug/BasicBrickShader.app/Contents/Resources/earth_tex.jpg
 cCpResource brickFrag.glsl ./build/Debug/BasicBrickShader.app/Contents/Resources/brickFrag.glsl
-cCpResource CinderApp.icns ./build/Debug/BasicBrickShader.app/Contents/Resources/CinderApp.icns
 cProcessPCH++ /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/BasicBrickShader_Prefix-dimwtmafkdgkegelfbjqahktijgz/BasicBrickShader_Prefix.pch.pth BasicBrickShader_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC ./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.o /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cLd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader normal i386
@@ -2553,9 +2553,9 @@ t1336782579
 s24149
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cpp
-c0000000050A11DA200000000000007B8
-t1352736162
-s1976
+c0000000050A1209700000000000007B6
+t1352736919
+s1974
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShader.LinkFileList
 c00000000509B5E0800000000000000A3
@@ -2563,11 +2563,11 @@ t1352359432
 s163
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.o
-t1352736259
-s450088
+t1352736922
+s450080
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app
-t1352736260
+t1352736945
 s102
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Info.plist
@@ -2575,7 +2575,7 @@ t1352510134
 s1250
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader
-t1352736260
+t1352736922
 s7818304
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/PkgInfo
@@ -2595,7 +2595,7 @@ t1352736258
 s472
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl
-t1352735872
+t1352736945
 s1865
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources/earth_tex.jpg
@@ -2624,8 +2624,8 @@ t1352736257
 s472
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/brickVert.glsl
-c0000000050A11E160000000000000749
-t1352736278
+c0000000050A120B80000000000000749
+t1352736952
 s1865
 
 N/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/earth_tex.jpg
@@ -2651,11 +2651,11 @@ r0
 
 CCheck dependencies
 r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies417de7965551b641^7fc0e7965551b641^---0#1#0#--18"Check dependencies36"B2607AD3-CA08-4555-A5B6-03B2B9B94856-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies13f1e6385851b641^2c29e7385851b641^---0#1#0#--18"Check dependencies36"118BF4E2-3176-4780-8B94-934F45EAD74C-
 
 CCompileC ./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.o /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s374429058.157611
-e374429059.937016
+s374429720.243309
+e374429722.118376
 r1
 xCompileC
 x./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.o
@@ -2664,7 +2664,7 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cppab7728825551b641^37e0ef835551b641^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cpp0000000000000000^3130"CompileC ./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.o ../src/BasicBrickShaderApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-sign-conversion -iquote /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-generated-files.hmap -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-own-target-headers.hmap -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-all-target-headers.hmap -iquote /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-project-headers.hmap -iquote../../../include -iquote../include -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug/include -I../../../boost -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/DerivedSources/i386 -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/DerivedSources -F/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug -include /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/BasicBrickShader_Prefix-dimwtmafkdgkegelfbjqahktijgz/BasicBrickShader_Prefix.pch -MMD -MT dependencies -MF /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.d --serialize-diagnostics /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.dia -c /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cpp -o /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.o36"A9D76F6A-664C-403A-B246-EB33F8F684B7-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cpp0b603e185851b641^164e1e1a5851b641^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cpp0000000000000000^3130"CompileC ./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.o ../src/BasicBrickShaderApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-sign-conversion -iquote /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-generated-files.hmap -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-own-target-headers.hmap -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-all-target-headers.hmap -iquote /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-project-headers.hmap -iquote../../../include -iquote../include -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug/include -I../../../boost -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/DerivedSources/i386 -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/DerivedSources -F/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug -include /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/BasicBrickShader_Prefix-dimwtmafkdgkegelfbjqahktijgz/BasicBrickShader_Prefix.pch -MMD -MT dependencies -MF /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.d --serialize-diagnostics /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.dia -c /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/../src/BasicBrickShaderApp.cpp -o /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShaderApp.o36"6E694A6C-2961-449E-8861-7666376B0D64-
 
 CCopyStringsFile /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources/as.strings as.strings
 r0
@@ -2688,13 +2688,13 @@ x./build/Debug/BasicBrickShader.app/Contents/Resources/brickFrag.glsl
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Copy ./build/Debug/BasicBrickShader.app/Contents/Resources/brickFrag.glslbaa323825551b641^494c24825551b641^---0#0#0#-19%DVTDocumentLocation2@145"file://localhost/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources/brickFrag.glsl0000000000000000^466"CpResource brickFrag.glsl ./build/Debug/BasicBrickShader.app/Contents/Resources/brickFrag.glsl    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/brickFrag.glsl /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources36"891212E1-CA19-40A0-9A89-9D84517AD285-
 
 CCpResource brickVert.glsl ./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl
-s374429078.926313
-e374429078.929649
+s374429752.921349
+e374429752.923563
 r1
 xCpResource
 xbrickVert.glsl
 x./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Copy ./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsldc82ed965551b641^5b27ee965551b641^---0#0#0#-19%DVTDocumentLocation2@145"file://localhost/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl0000000000000000^466"CpResource brickVert.glsl ./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/brickVert.glsl /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources36"66227F87-F1E5-4165-AAC7-2C8AD7CC93CE-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Copy ./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl02f4eb385851b641^e6afec385851b641^---0#0#0#-19%DVTDocumentLocation2@145"file://localhost/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl0000000000000000^466"CpResource brickVert.glsl ./build/Debug/BasicBrickShader.app/Contents/Resources/brickVert.glsl    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/brickVert.glsl /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources36"FECD7F08-D3DD-48B7-912F-B232AA49AF4B-
 
 CCpResource earth_tex.jpg ./build/Debug/BasicBrickShader.app/Contents/Resources/earth_tex.jpg
 s374428920.432050
@@ -2706,14 +2706,14 @@ x./build/Debug/BasicBrickShader.app/Contents/Resources/earth_tex.jpg
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Copy ./build/Debug/BasicBrickShader.app/Contents/Resources/earth_tex.jpgc1aa6ef85451b641^f14b71f85451b641^---0#0#0#-19%DVTDocumentLocation2@144"file://localhost/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources/earth_tex.jpg000000000080d041^463"CpResource earth_tex.jpg ./build/Debug/BasicBrickShader.app/Contents/Resources/earth_tex.jpg    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/earth_tex.jpg /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Resources36"8858F6B4-F300-430A-870B-CE205329B4EE-
 
 CLd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader normal i386
-s374429059.943466
-e374429060.273581
+s374429722.125195
+e374429722.464603
 r1
 xLd
 x/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader
 xnormal
 xi386
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection132"Link /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader179cf1835551b641^cc0946845551b641^---0#0#0#--1133"Ld ./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader normal i386    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug -F/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug -filelist /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShader.LinkFileList -mmacosx-version-min=10.5 ../../..//lib/libcinder_d.a -lcurl -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader36"8404EEF6-93BB-4309-A214-9797489655CF-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection132"Link /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShadereb1f201a5851b641^13f1761a5851b641^---0#0#0#--1133"Ld ./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader normal i386    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug -F/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug -filelist /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/Objects-normal/i386/BasicBrickShader.LinkFileList -mmacosx-version-min=10.5 ../../..//lib/libcinder_d.a -lcurl -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/MacOS/BasicBrickShader36"BC09363A-B804-4361-8AB5-59533ED68165-
 
 CProcessInfoPlistFile /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app/Contents/Info.plist Info.plist
 s374202934.281184
@@ -2757,10 +2757,10 @@ xcom.apple.compilers.llvm.clang.1_0.compiler
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection38"Precompile BasicBrickShader_Prefix.pchb1a65e88954bb641^5fd36b88954bb641^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/BasicBrickShader_Prefix.pch0000000000000000^3072"ProcessPCH++ /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/BasicBrickShader_Prefix-hfmczqjuvbtiffddanikfqwhhgsa/BasicBrickShader_Prefix.pch.pth BasicBrickShader_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-sign-conversion -iquote /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-generated-files.hmap -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-own-target-headers.hmap -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-all-target-headers.hmap -iquote /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/BasicBrickShader-project-headers.hmap -iquote../../../include -iquote../include -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug/include -I../../../boost -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/DerivedSources/i386 -I/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/BasicBrickShader.build/Debug/BasicBrickShader.build/DerivedSources -F/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/build/Debug --serialize-diagnostics /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/BasicBrickShader_Prefix-hfmczqjuvbtiffddanikfqwhhgsa/BasicBrickShader_Prefix.pch.dia -c /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/BasicBrickShader_Prefix.pch -o /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/BasicBrickShader_Prefix-hfmczqjuvbtiffddanikfqwhhgsa/BasicBrickShader_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/BasicBrickShader_Prefix-hfmczqjuvbtiffddanikfqwhhgsa/BasicBrickShader_Prefix.pch.d36"15628CCC-7706-40F9-A3D9-5A2AEB066EA6-
 
 CTouch /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app
-s374429078.959941
-e374429078.966481
+s374429752.953937
+e374429752.960521
 r1
 xTouch
 x/Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Touch /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app3dd1f5965551b641^d36bf7965551b641^---0#0#0#--227"Touch ./build/Debug/BasicBrickShader.app    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    /usr/bin/touch -c /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app36"F524F3E4-63FD-48EB-ACE0-AA0F8F0FE949-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Touch /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.apped49f4385851b641^7ee5f5385851b641^---0#0#0#--227"Touch ./build/Debug/BasicBrickShader.app    cd /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode    /usr/bin/touch -c /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/./build/Debug/BasicBrickShader.app36"8C8E106C-4AA6-4553-9EF0-F1B12C5EDA93-
 
