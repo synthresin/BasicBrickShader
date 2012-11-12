@@ -21,6 +21,7 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C61B3ADB164B9ABC0019C69E /* brickVert.glsl in Resources */ = {isa = PBXBuildFile; fileRef = C61B3ADA164B9ABC0019C69E /* brickVert.glsl */; };
 		C61B3ADD164B9ACC0019C69E /* brickFrag.glsl in Resources */ = {isa = PBXBuildFile; fileRef = C61B3ADC164B9ACC0019C69E /* brickFrag.glsl */; };
+		C6E4CD7E165154890040F322 /* earth_tex.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6E4CD7D165154890040F322 /* earth_tex.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8D1107320486CEB800E47090 /* BasicBrickShader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicBrickShader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61B3ADA164B9ABC0019C69E /* brickVert.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = brickVert.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		C61B3ADC164B9ACC0019C69E /* brickFrag.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = brickFrag.glsl; sourceTree = "<group>"; };
+		C6E4CD7D165154890040F322 /* earth_tex.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth_tex.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6E4CD7D165154890040F322 /* earth_tex.jpg */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				00CCAF14116A9FEE008396D5 /* CinderApp.icns */,
 				C61B3ADA164B9ABC0019C69E /* brickVert.glsl */,
@@ -200,6 +203,7 @@
 				00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */,
 				C61B3ADB164B9ABC0019C69E /* brickVert.glsl in Resources */,
 				C61B3ADD164B9ACC0019C69E /* brickFrag.glsl in Resources */,
+				C6E4CD7E165154890040F322 /* earth_tex.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

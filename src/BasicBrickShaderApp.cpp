@@ -2,6 +2,8 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Camera.h"
 #include "cinder/gl/GlslProg.h"
+#include "cinder/gl/Texture.h"
+#include "cinder/ImageIo.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -18,6 +20,8 @@ class BasicBrickShaderApp : public AppBasic {
     gl::GlslProg mShader;
     Vec3f mLightPos;
     float mCameraZ;
+    
+    gl::Texture mTex;
     
 };
 
@@ -39,6 +43,8 @@ void BasicBrickShaderApp::setup()
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
     
+    mTex = gl::Texture( loadImage( loadResource( "earth_tex.jpg" ) ) );
+    
 }
 
 void BasicBrickShaderApp::mouseDown( MouseEvent event )
@@ -53,18 +59,21 @@ void BasicBrickShaderApp::mouseMove(MouseEvent event)
 void BasicBrickShaderApp::update()
 {
     mCam.lookAt(Vec3f(100.0f,100.0f, mCameraZ), Vec3f::zero(), Vec3f::yAxis());
+    gl::setMatrices(mCam);
 }
 
 void BasicBrickShaderApp::draw()
 {
-    gl::setMatrices(mCam);
+    mTex.enableAndBind();
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();
     mShader.uniform("LightPosition", mLightPos);
+    mShader.uniform("EarthTexture", 0);
     gl::drawSphere(Vec3f::zero(), 50.0f);
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     mShader.unbind();
+
 }
 
 CINDER_APP_BASIC( BasicBrickShaderApp, RendererGl )

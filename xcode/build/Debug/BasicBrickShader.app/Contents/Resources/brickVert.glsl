@@ -3,7 +3,7 @@
 uniform vec3    LightPosition;
 
 const float     SpecularContribution = 0.2;
-const float     AmbientContribution = 0.2;
+const float     AmbientContribution = 0.5;
 const float     DiffuseContribution = 1.0 - SpecularContribution - AmbientContribution;
 
 varying float   LightIntensity;
@@ -34,4 +34,5 @@ void main()
 
     LightIntensity = DiffuseContribution * diffuse + SpecularContribution * spec + AmbientContribution * 1.0;   // 빛의 세기 다 구했당!
     gl_Position = ftransform(); // 마지막 처리~
+    gl_TexCoord[0] = gl_MultiTexCoord0;
 }
