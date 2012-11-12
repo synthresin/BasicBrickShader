@@ -19,9 +19,6 @@ class BasicBrickShaderApp : public AppBasic {
     Vec3f mLightPos;
     float mCameraZ;
     
-    Vec3f mBrickColor, mMortarColor;
-    Vec2f mBrickPct, mBrickSize;
-    
 };
 
 void BasicBrickShaderApp::setup()
@@ -41,14 +38,6 @@ void BasicBrickShaderApp::setup()
     gl::enableDepthWrite();
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
-    
-    // 벽돌 색깔 설정
-    mBrickColor = Vec3f(0.6, 0.2, 0.3);
-    mMortarColor = Vec3f(0.7, 0.7, 0.7);
-    
-    // 벽돌 사이즈 설정
-    mBrickSize = Vec2f(10.0, 4.0);
-    mBrickPct = Vec2f(0.9, 0.8);
     
 }
 
@@ -73,11 +62,7 @@ void BasicBrickShaderApp::draw()
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();
     mShader.uniform("LightPosition", mLightPos);
-    mShader.uniform("BrickColor", mBrickColor);
-    mShader.uniform("BrickPct", mBrickPct);
-    mShader.uniform("BrickSize", mBrickSize);
-    mShader.uniform("MortarColor", mMortarColor);
-    gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
+    gl::drawSphere(Vec3f::zero(), 50.0f);
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     mShader.unbind();
 }
