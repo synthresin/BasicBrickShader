@@ -22,6 +22,8 @@ class BasicBrickShaderApp : public AppBasic {
     float mCameraZ;
     
     gl::Texture mTex;
+    gl::Texture mTex2;
+    gl::Texture mTex3;
     
 };
 
@@ -46,6 +48,8 @@ void BasicBrickShaderApp::setup()
 
     
     mTex = gl::Texture( loadImage( loadResource( "et.jpg" ) ) );
+    mTex2 = gl::Texture( loadImage( loadResource( "nt.jpg" ) ) );
+    mTex3 = gl::Texture( loadImage( loadResource( "mt.png" ) ) );
     
 }
 
@@ -67,11 +71,15 @@ void BasicBrickShaderApp::update()
 void BasicBrickShaderApp::draw()
 {
     mTex.bind(0);
+    mTex2.bind(1);
+    mTex3.bind(2);
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();
     mShader.uniform("LightPosition", mLightPos);
-    mShader.uniform("EarthTexture", 0);
+    mShader.uniform("EarthDay", 0);
+    mShader.uniform("EarthNight", 1);
+    mShader.uniform("EarthCloudGloss", 2);
     gl::drawSphere(Vec3f::zero(), 70.0f);
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     mShader.unbind();
