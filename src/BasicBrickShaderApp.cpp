@@ -45,7 +45,7 @@ void BasicBrickShaderApp::setup()
     
 
     
-    mTex = gl::Texture( loadImage( loadResource( "earth_tex.jpg" ) ) );
+    mTex = gl::Texture( loadImage( loadResource( "et.jpg" ) ) );
     
 }
 
