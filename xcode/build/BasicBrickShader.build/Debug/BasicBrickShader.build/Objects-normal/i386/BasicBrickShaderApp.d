@@ -463,4 +463,5 @@ dependencies: \
   ../../../include/cinder/app/TouchEvent.h \
   ../../../include/cinder/Camera.h ../../../include/cinder/gl/GlslProg.h \
   ../../../include/cinder/gl/Texture.h ../../../include/cinder/ImageIo.h \
-  ../../../include/cinder/DataTarget.h
+  ../../../include/cinder/DataTarget.h \
+  /Users/synthresin/Desktop/cinder/apps/BasicBrickShader/xcode/CubeMap.h

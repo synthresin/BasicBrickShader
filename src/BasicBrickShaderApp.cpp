@@ -4,10 +4,13 @@
 #include "cinder/gl/GlslProg.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/ImageIo.h"
+#include "CubeMap.h"
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
+const int		CUBE_MAP_LOC = 4;
+
 
 class BasicBrickShaderApp : public AppBasic {
   public:
@@ -21,10 +24,9 @@ class BasicBrickShaderApp : public AppBasic {
     Vec3f mLightPos;
     float mCameraZ;
     
-    gl::Texture mTex;
-    gl::Texture mTex2;
-    gl::Texture mTex3;
-    
+    CubeMap *mEnvMap;
+    Vec3f mBaseColor;
+    float mMixRatio;
 };
 
 void BasicBrickShaderApp::setup()
@@ -40,16 +42,23 @@ void BasicBrickShaderApp::setup()
         std::cout << "Unable to load shader" << std::endl;
     }
     
-    mLightPos = Vec3f(0.0f,0.0f, 100.0f);
+    
     gl::enableDepthWrite();
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
     
 
-    
-    mTex = gl::Texture( loadImage( loadResource( "et.jpg" ) ) );
-    mTex2 = gl::Texture( loadImage( loadResource( "nt.jpg" ) ) );
-    mTex3 = gl::Texture( loadImage( loadResource( "mt.png" ) ) );
+    mLightPos = Vec3f(0.0f,0.0f, 300.0f);
+    mBaseColor = Vec3f(0.4, 0.4, 1.0);
+    mMixRatio = 0.8;
+    mEnvMap = new CubeMap( GLsizei(128), GLsizei(128),
+                          Surface8u( loadImage( loadResource( "berkeley_positive_x.jpg" ) ) ),
+                          Surface8u( loadImage( loadResource( "berkeley_positive_y.jpg" ) ) ),
+                          Surface8u( loadImage( loadResource( "berkeley_positive_z.jpg" ) ) ),
+                          Surface8u( loadImage( loadResource( "berkeley_negative_x.jpg" ) ) ),
+                          Surface8u( loadImage( loadResource( "berkeley_negative_y.jpg" ) ) ),
+                          Surface8u( loadImage( loadResource( "berkeley_negative_z.jpg" ) ) )
+                          );
     
 }
 
@@ -70,16 +79,14 @@ void BasicBrickShaderApp::update()
 
 void BasicBrickShaderApp::draw()
 {
-    mTex.bind(0);
-    mTex2.bind(1);
-    mTex3.bind(2);
+    mEnvMap->bindMulti(CUBE_MAP_LOC);
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();
-    mShader.uniform("LightPosition", mLightPos);
-    mShader.uniform("EarthDay", 0);
-    mShader.uniform("EarthNight", 1);
-    mShader.uniform("EarthCloudGloss", 2);
+    mShader.uniform("LightPos", mLightPos);
+    mShader.uniform("BaseColor", mBaseColor);
+    mShader.uniform("MixRatio", mMixRatio);
+    mShader.uniform("EnvMap", CUBE_MAP_LOC);
     gl::drawSphere(Vec3f::zero(), 70.0f);
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     mShader.unbind();
