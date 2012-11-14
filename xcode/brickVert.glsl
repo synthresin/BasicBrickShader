@@ -33,5 +33,7 @@ void main()
                                                             // 디퓨즈랑 스펙큘러 값 다 구했다! (0.0 - 1.0 사이.)
 
     LightIntensity = DiffuseContribution * diffuse + SpecularContribution * spec + AmbientContribution * 1.0;   // 빛의 세기 다 구했당!
-    gl_Position = ftransform(); // 마지막 처리~
+    
+    vec4 noiseVec = noise4(ftransform()) * 20;
+    gl_Position = ftransform() + noiseVec; // 마지막 처리~
 }
