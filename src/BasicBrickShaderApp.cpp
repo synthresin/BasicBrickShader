@@ -33,7 +33,7 @@ void BasicBrickShaderApp::setup()
         std::cout << "Unable to load shader" << std::endl;
     }
     
-    mLightPos = Vec3f(0.0f,0.0f, 100.0f);
+    mLightPos = Vec3f(0.0f,0.0f, 200.0f);
     gl::enableDepthWrite();
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
