@@ -25,6 +25,12 @@ class BasicBrickShaderApp : public AppBasic {
     Vec3f mSpecular;
     Vec3f mAmbient;
     float mKd;
+    
+    Vec3f mStripeColor;
+    Vec3f mBackColor;
+    float mWidth;
+    float mFuzz;
+    float mScale;
 };
 
 void BasicBrickShaderApp::setup()
@@ -40,10 +46,22 @@ void BasicBrickShaderApp::setup()
         std::cout << "Unable to load shader" << std::endl;
     }
     
-    mLightPos = Vec3f(0.0f,0.0f, 100.0f);
+    
     gl::enableDepthWrite();
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
+    
+    mLightPos = Vec3f(0.0f,0.0f, 100.0f);
+    mLightColor = Vec3f(0.9, 0.8, 0.7);
+    mSpecular = Vec3f(1.0, 0.7, 0.9);
+    mAmbient = Vec3f(0.1, 0.2, 0.3);
+    mKd = 0.3;
+    
+    mStripeColor = Vec3f(1.0, 1.0, 1.0);
+    mBackColor = Vec3f(0.0, 0.0, 0.0);
+    mWidth = 20.0;
+    mFuzz = 1.0;
+    mScale = 10.0f;
     
 }
 
@@ -68,6 +86,16 @@ void BasicBrickShaderApp::draw()
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();
     mShader.uniform("LightPosition" , mLightPos);
+    mShader.uniform("LightColor" , mLightColor);
+    mShader.uniform("Specular" , mSpecular);
+    mShader.uniform("Ambient" , mAmbient);
+    mShader.uniform("Kd" , mKd);
+    
+    mShader.uniform("StripeColor" , mStripeColor);
+    mShader.uniform("BackColor" , mBackColor);
+    mShader.uniform("Width" , mWidth);
+    mShader.uniform("Fuzz" , mFuzz);
+    mShader.uniform("Scale" , mScale);
     gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     mShader.unbind();
