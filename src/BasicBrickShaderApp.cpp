@@ -24,9 +24,10 @@ class BasicBrickShaderApp : public AppBasic {
     Vec3f mLightPos;
     float mCameraZ;
     
-    CubeMap *mEnvMap;
     Vec3f mBaseColor;
     float mMixRatio;
+    
+    vector<CubeMap>		mMaps;
 };
 
 void BasicBrickShaderApp::setup()
@@ -51,14 +52,16 @@ void BasicBrickShaderApp::setup()
     mLightPos = Vec3f(0.0f,0.0f, 300.0f);
     mBaseColor = Vec3f(0.4, 0.4, 1.0);
     mMixRatio = 0.8;
-    mEnvMap = new CubeMap( GLsizei(128), GLsizei(128),
-                          Surface8u( loadImage( loadResource( "berkeley_positive_x.jpg" ) ) ),
-                          Surface8u( loadImage( loadResource( "berkeley_positive_y.jpg" ) ) ),
-                          Surface8u( loadImage( loadResource( "berkeley_positive_z.jpg" ) ) ),
-                          Surface8u( loadImage( loadResource( "berkeley_negative_x.jpg" ) ) ),
-                          Surface8u( loadImage( loadResource( "berkeley_negative_y.jpg" ) ) ),
-                          Surface8u( loadImage( loadResource( "berkeley_negative_z.jpg" ) ) )
-                          );
+    
+    
+    mMaps.push_back( CubeMap( GLsizei(128), GLsizei(128),
+                             Surface8u( loadImage( loadResource( "berkeley_positive_x.png" ) ) ),
+                             Surface8u( loadImage( loadResource( "berkeley_positive_y.png" ) ) ),
+                             Surface8u( loadImage( loadResource( "berkeley_positive_z.png" ) ) ),
+                             Surface8u( loadImage( loadResource( "berkeley_negative_x.png" ) ) ),
+                             Surface8u( loadImage( loadResource( "berkeley_negative_y.png" ) ) ),
+                             Surface8u( loadImage( loadResource( "berkeley_negative_z.png" ) ) )
+                             ));
     
 }
 
@@ -79,7 +82,7 @@ void BasicBrickShaderApp::update()
 
 void BasicBrickShaderApp::draw()
 {
-    mEnvMap->bindMulti(CUBE_MAP_LOC);
+    mMaps[0].bindMulti(CUBE_MAP_LOC);
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();
