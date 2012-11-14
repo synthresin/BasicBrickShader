@@ -33,7 +33,7 @@ void BasicBrickShaderApp::setup()
         std::cout << "Unable to load shader" << std::endl;
     }
     
-    mLightPos = Vec3f(0.0f,0.0f, 200.0f);
+    mLightPos = Vec3f(0.0f,0.0f, 100.0f);
     gl::enableDepthWrite();
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
@@ -60,6 +60,7 @@ void BasicBrickShaderApp::draw()
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();
+    mShader.uniform("LightPosition" , mLightPos);
     gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     mShader.unbind();

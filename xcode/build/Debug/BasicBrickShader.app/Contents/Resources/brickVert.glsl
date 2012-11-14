@@ -2,8 +2,8 @@
 
 uniform vec3    LightPosition;
 
-const float     SpecularContribution = 0.2;
-const float     AmbientContribution = 0.2;
+const float     SpecularContribution = 0.1;
+const float     AmbientContribution = 0.1;
 const float     DiffuseContribution = 1.0 - SpecularContribution - AmbientContribution;
 
 varying float   LightIntensity;
