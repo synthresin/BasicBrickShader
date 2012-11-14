@@ -1,6 +1,7 @@
 #version 120
 
-varying float   LightIntensity;
+varying vec3 DiffuseColor;
+varying vec3 SpecularColor;
 
 void main() {
     

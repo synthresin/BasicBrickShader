@@ -16,8 +16,15 @@ class BasicBrickShaderApp : public AppBasic {
 	void draw();
     CameraPersp mCam;
     gl::GlslProg mShader;
-    Vec3f mLightPos;
     float mCameraZ;
+    
+    // uniforms
+    
+    Vec3f mLightPos;
+    Vec3f mLightColor;
+    Vec3f mSpecular;
+    Vec3f mAmbient;
+    float mKd;
 };
 
 void BasicBrickShaderApp::setup()

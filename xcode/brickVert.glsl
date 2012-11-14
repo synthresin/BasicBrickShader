@@ -1,13 +1,14 @@
 #version 120
 
-uniform vec3    LightPosition;
+uniform vec3 LightPosition;
+uniform vec3 LightColor;
+uniform vec3 EyePosition;
+uniform vec3 Specular;
+uniform vec3 Ambient;
+uniform vec3 Kd;
 
-const float     SpecularContribution = 0.1;
-const float     AmbientContribution = 0.1;
-const float     DiffuseContribution = 1.0 - SpecularContribution - AmbientContribution;
-
-varying float   LightIntensity;
-
+varying vec3 DiffuseColor;
+varying vec3 SpecularColor;
 
 void main()
 {
