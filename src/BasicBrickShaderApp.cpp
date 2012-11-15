@@ -97,7 +97,7 @@ void BasicBrickShaderApp::draw()
     
     mShader.bind();
     mShader.uniform("LightPosition" , mLightPos);
-    mShader.uniform("tex", 0);
+    mShader.uniform("tex", 1);
     //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
     gl::drawSphere(Vec3f::zero(), 50.0f);
     gl::pushMatrices();

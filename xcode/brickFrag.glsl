@@ -2,6 +2,7 @@
 
 varying float       LightIntensity;
 uniform sampler2D   tex;
+varying vec2        TexCoord;
 
 void main() {
     
