@@ -223,6 +223,9 @@ class BasicBrickShaderApp : public AppBasic {
     GLuint      noise2DTexName[2];
     int         noise2DTexSize;
     
+    float mScale;
+    Vec3f   mSkyColor;
+    Vec3f   mCloudColor;
 };
 
 
@@ -303,6 +306,10 @@ void BasicBrickShaderApp::setup()
     
     mLightPos = Vec3f(0.0f,0.0f, 300.0f);
     
+    mScale = 0.02;
+    mSkyColor = Vec3f(0.0, 0.0, 0.8);
+    mCloudColor = Vec3f(0.8, 0.8, 0.8);
+    
 }
 
 void BasicBrickShaderApp::mouseDown( MouseEvent event )
@@ -326,10 +333,13 @@ void BasicBrickShaderApp::draw()
 	gl::clear( Color( 0, 0, 0 ) );
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     
-      mShader.bind();
-      mShader.uniform("LightPosition" , mLightPos);
-      mShader.uniform("tex", 0);
-      mShader.uniform("tex2", 0);
+    mShader.bind();
+    mShader.uniform("LightPos" , mLightPos);
+    mShader.uniform("Scale", mScale);
+    mShader.uniform("Noise", 1);
+    mShader.uniform("SkyColor", mSkyColor);
+    mShader.uniform("CloudColor", mCloudColor);
+    
     //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
       gl::drawSphere(Vec3f::zero(), 50.0f);
       gl::pushMatrices();

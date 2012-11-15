@@ -1,27 +1,17 @@
 #version 120
 
-varying float       LightIntensity;
-uniform sampler2D   tex;
-uniform sampler2D   tex2;
-varying vec2        TexCoord;
+varying float LightIntensity;
+varying vec3 MCPosition;
+
+uniform sampler3D   Noise;
+uniform vec3        CloudColor;
+uniform vec3        SkyColor;
 
 void main() {
+    vec4 noisevec = texture3D(Noise, MCPosition);
     
-    vec3 color = texture2D(tex, TexCoord).rgb;
-    gl_FragColor = vec4(color,1.0);
+    float intensity = (noisevec[0] + noisevec[1] + noisevec[2] + noisevec[3] + 0.03125) * 1.5;
     
-    vec3 color2 = texture2D(tex2, TexCoord).rgb;
-    //color *= LightIntensity;
-    
-    vec3 finalColor = mix(color, color2, LightIntensity);
-    gl_FragColor = vec4(finalColor,1.0);
-    
-    vec4 colorA = texture2D(tex, TexCoord);
-    vec4 color2A = texture2D(tex2, TexCoord);
-    
-    vec4 finalColorA = mix(colorA, color2A, LightIntensity);
-    gl_FragColor = vec4(finalColorA);
-    gl_FragColor = vec4(colorA);
-    
-    
+    vec3 color = mix(SkyColor, CloudColor, intensity) * LightIntensity;
+    gl_FragColor = vec4(color, 1.0);
 }
