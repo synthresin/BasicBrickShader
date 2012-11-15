@@ -1,0 +1,10 @@
+The 3dlabsnormal.png and 3dlabs.png are (C) Copyright 2002-2006 3Dlabs, Inc.
+
+It is provided for use only in the ogl2demo program.
+No other use is permitted. The model may not be
+modified or redistributed without the express written
+permission of 3Dlabs.
+
+Creative Labs
+1901 McCarthy Blvd.
+Milpitas, CA 95035

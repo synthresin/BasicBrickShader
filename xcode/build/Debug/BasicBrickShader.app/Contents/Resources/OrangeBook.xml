@@ -1,0 +1,907 @@
+<?xml version="1.0" ?>
+
+<!--
+               Copyright (C) 2002-2006  3Dlabs Inc. Ltd.
+
+                        All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+     Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+
+     Redistributions in binary form must reproduce the above
+     copyright notice, this list of conditions and the following
+     disclaimer in the documentation and/or other materials provided
+     with the distribution.
+ 
+     Neither the name of 3Dlabs Inc. Ltd. nor the names of its
+     contributors may be used to endorse or promote products derived
+     from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+-->
+
+<demo folder="OrangeBook">
+
+
+	<program name="CH06-brick">
+		<models>All -PointCloud -Alien</models>
+		<uniform name="BrickColor">1.0 0.3 0.2</uniform>
+		<uniform name="MortarColor">0.85 0.86 0.84</uniform>
+		<uniform name="BrickSize" type="vec2">
+			0.30 0.15
+			<slider>
+			0.0 0.0
+			1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="BrickPct" type="vec2">
+			0.90 0.85
+			<slider>
+			0.0 0.0
+			1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH10-earth-1tex">
+		<textures stage="0">Day</textures>
+		<models>Sphere</models>
+		<uniform name="LightPosition" type="vec3">
+			3.0 0.0 -3.0
+			<slider>
+				-3 -3 -10
+				3 3 10
+			</slider>
+		</uniform>
+		<uniform name="EarthTexture">0</uniform>
+	</program>
+
+
+	<program name="CH10-earth-3tex">
+		<textures stage="0">Day</textures>
+		<textures stage="1">Night</textures>
+		<textures stage="2">Clouds</textures>
+		<models>Sphere</models>
+		<uniform name="LightPosition" type="vec3">
+			3.0 0.0 -3.0
+			<slider>
+				-3 -3 -10
+				3 3 10
+			</slider>
+		</uniform>
+		<uniform name="EarthDay">0</uniform>
+		<uniform name="EarthNight">1</uniform>
+		<uniform name="EarthCloudGloss">2</uniform>
+	</program>
+
+
+	<program name="CH10-envmap">
+		<textures mipmap="0">House</textures>
+		<models>All -PointCloud -Alien</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="BaseColor">0.4 0.4 1.0</uniform>
+		<uniform name="MixRatio" type="float">
+			0.8
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="EnvMap">0</uniform>
+	</program>
+
+
+	<program name="CH11-stripe">
+		<models>Teapot All -PointCloud -Alien</models>
+		<uniform name="LightPosition" type="vec3">
+			4.0 4.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="LightColor">0.9 0.8 0.7</uniform>
+		<uniform name="EyePosition">0.0 0.0 4.0</uniform>
+		<uniform name="Specular" type="vec3">
+			0.2 0.2 0.2
+			<slider>
+			0.0 0.0 0.0
+			1.0 1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="Ambient" type="vec3">
+			0.2 0.2 0.2
+			<slider>
+			0.0 0.0 0.0
+			1.0 1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="Kd" type="float">
+			0.8
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="StripeColor">1.0 0.5 0.0</uniform>
+		<uniform name="BackColor">0.2 0.2 1.0</uniform>
+		<uniform name="Width" type="float">
+			0.5
+			 <slider>0 1</slider>
+		</uniform>
+		<uniform name="Fuzz" type="float">
+			0.1
+			 <slider>0 0.5</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			10.0
+			<slider>0 40</slider>
+		</uniform>
+	</program>
+
+	<program name="CH11-toyball">
+		<models>Sphere</models>
+		<uniform name="BallCenter">0.0 0.0 0.0 1.0</uniform>
+		<uniform name="LightDir">0.57735 0.57735 0.57735 0.0</uniform>
+		<uniform name="HVector">0.32506 0.32506 0.88808 0.0</uniform>
+		<uniform name="SpecularColor">0.4 0.4 0.4 60.0</uniform>
+		<uniform name="Red">0.6 0.0 0.0 1.0</uniform>
+		<uniform name="Blue">0.0 0.3 0.6 1.0</uniform>
+		<uniform name="Yellow">0.6 0.5 0.0 1.0</uniform>
+
+		<uniform name="HalfSpace0">1.0 0.0 0.0 0.2</uniform>
+		<uniform name="HalfSpace1">0.309016994 0.951056516 0.0 0.2</uniform>
+		<uniform name="HalfSpace2">-0.809016994 0.587785252 0.0 0.2</uniform>
+		<uniform name="HalfSpace3">-0.809016994 -0.587785252 0.0 0.2</uniform>
+		<uniform name="HalfSpace4">0.309016994 -0.951056516 0.0 0.2</uniform>
+
+		<uniform name="InOrOutInit">-3.0</uniform>
+		<uniform name="StripeWidth">0.3</uniform>
+		<uniform name="FWidth">0.005</uniform>
+	</program>
+
+	<program name="CH11-lattice">
+		<models>Teapot All -PointCloud -Alien</models>
+		<uniform name="LightPosition" type="vec3">
+			4.0 4.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="LightColor">0.9 0.8 0.7</uniform>
+		<uniform name="EyePosition">0.0 0.0 4.0</uniform>
+		<uniform name="Specular" type="vec3">
+			0.2 0.2 0.2
+			<slider>
+			0.0 0.0 0.0
+			1.0 1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="Ambient" type="vec3">
+			0.2 0.2 0.2
+			<slider>
+			0.0 0.0 0.0
+			1.0 1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="Kd" type="float">
+			0.8
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="SurfaceColor">0.9 0.7 0.25</uniform>
+		<uniform name="Scale" type="vec2">
+			10.0 10.0
+			<slider>
+			0.0 0.0
+			30.0 30.0
+			</slider>
+		</uniform>
+		<uniform name="Threshold" type="vec2">
+			0.13 0.13
+			<slider>
+			0.0 0.0
+			1.0 1.0
+			</slider>
+		</uniform>
+	</program>
+
+	<program name="CH11-bumpmap" stress="fragment">
+		<tangents/>
+		<models>All -Realizm -Alien -BlobbyCloud -PointCloud -External -Teapot</models>
+		<uniform name="SurfaceColor">0.7 0.6 0.18</uniform>
+		<uniform name="SpecularFactor" type="float">0.5
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="BumpSize" type="float">
+			0.15
+			<slider>0 0.5</slider>
+		</uniform>
+		<uniform name="BumpDensity" type="float">
+			16.0
+			<slider>0 50</slider>
+		</uniform>
+		<uniform name="LightPosition" type="vec3">
+			5.0 5.0 5.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+	<program name="CH12-hemiLight">
+		<models>Teapot All -Alien</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 10.0 0.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="SkyColor" type="vec3">
+			1.0 1.0 1.0
+			<slider>
+			0.0 0.0 0.0
+			1.0 1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="GroundColor" type="vec3">
+			0.0 0.0 0.0
+			<slider>
+			0.0 0.0 0.0
+			1.0 1.0 1.0
+			</slider>
+		</uniform>
+	</program>
+
+	<program name="CH12-shLight">
+		<models>Teapot All -Alien</models>
+		<uniform name="ScaleFactor" type="float">
+			1.0
+			<slider>0 5</slider>
+		</uniform>
+	</program>
+
+	<program name="CH15-cloud">
+		<textures>3DNoise</textures>
+		<models>Teapot All -PointCloud -Alien</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.6
+			<slider>
+			0.0
+			1.0
+			</slider>
+		</uniform>
+		<uniform name="SkyColor">0.0 0.0 0.8</uniform>
+		<uniform name="CloudColor">0.8 0.8 0.8</uniform>
+		<uniform name="Noise">0</uniform>
+	</program>
+
+
+	<program name="CH15-fire">
+		<textures>3DNoise</textures>
+		<models>Teapot All -PointCloud -Alien</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.6
+			<slider>
+			0.0
+			1.0
+			</slider>
+		</uniform>
+		<uniform name="Color1">0.8 0.7 0.0</uniform>
+		<uniform name="Color2">0.6 0.1 0.0</uniform>
+		<uniform name="NoiseScale" type="float">
+			1.2
+			<slider>
+			0.0
+			2.0
+			</slider>
+		</uniform>
+		<uniform name="Noise">0</uniform>
+	</program>
+
+
+	<program name="CH15-marble">
+		<textures>3DNoise</textures>
+		<models>Teapot All -PointCloud -Alien</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.6
+			<slider>
+			0.0
+			2.0
+			</slider>
+		</uniform>
+		<uniform name="MarbleColor">0.7 0.7 0.7</uniform>
+		<uniform name="VeinColor">0.0 0.15 0.0</uniform>
+		<uniform name="Noise">0</uniform>
+	</program>
+
+
+	<program name="CH15-granite">
+		<textures>3DNoise</textures>
+		<models>Teapot All -PointCloud -Alien</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.6
+			<slider>
+			0.0
+			2.0
+			</slider>
+		</uniform>
+		<uniform name="NoiseScale" type="float">
+			5.0 <slider>0 10</slider>
+		</uniform>
+		<uniform name="Noise">0</uniform>
+	</program>
+
+
+	<program name="CH15-wood">
+		<textures>3DNoise</textures>
+		<models>Teapot All -PointCloud -Alien</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			2.0 <slider>0 4</slider>
+		</uniform>
+		<uniform name="LightWoodColor">0.6 0.3 0.1</uniform>
+		<uniform name="DarkWoodColor">0.4 0.2 0.07</uniform>
+		<uniform name="RingFreq" type="float">
+			4.0 <slider>0 10</slider>
+		</uniform>
+		<uniform name="NoiseScale" type="vec3">
+			0.5 0.1 0.1
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Noisiness"  type="float">
+			3.0
+			<slider>
+			0
+			6
+			</slider>
+		</uniform>
+		<uniform name="Noise">0</uniform>
+		<uniform name="GrainThreshold"  type="float">
+			0.5
+			<slider>
+			0.0
+			1.0
+			</slider>
+		</uniform>
+		<uniform name="LightGrains"  type="float">
+			1.0
+			<slider>
+			0.0
+			1.0
+			</slider>
+		</uniform>
+		<uniform name="DarkGrains"  type="float">
+			0.0
+			<slider>
+			0.0
+			1.0
+			</slider>
+		</uniform>
+		<uniform name="GrainScale"  type="float">
+			27.0
+			<slider>
+			0.0
+			50.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH16-cloud-anim">
+		<textures>3DNoise</textures>
+		<models>All -PointCloud -Alien</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.6
+			<slider>
+			0.0
+			2.0
+			</slider>
+		</uniform>
+		<uniform name="SkyColor">0.0 0.0 0.8</uniform>
+		<uniform name="CloudColor">0.8 0.8 0.8</uniform>
+		<uniform name="Noise">0</uniform>
+		<uniform name="Offset" type="vec3">
+			<slider>
+				0 0 0
+				0 -1 0
+			</slider>
+			<motion length="1s">
+				0 0 0
+				0 -1 0
+			</motion>
+		</uniform>
+	</program>
+
+
+	<program name="CH16-sphereMorph">
+		<models>Klein All -Plane -Alien -BlobbyCloud</models>
+		<uniform name="Radius" type="float">
+			0.8
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="Blend" type="float">
+			0.5
+			<slider>0 1</slider>
+			<motion length="2s">0 1</motion>
+			<motion length="1s">1 1</motion>
+			<motion length="2s">1 0</motion>
+			<motion length="1s">0 0</motion>
+		</uniform>
+		<uniform name="SurfaceColor">0.0 0.2 1.0</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 5.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+	<program name="CH16-vertexNoise" stress="vertex">
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="SurfaceColor">0.2 0.8 0.4</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 5.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Offset" type="vec3">0 0 0
+			<slider>-1 -1 -1 1 1 1</slider>
+			<motion length="1min">0 0 0 100 100 100</motion>
+		</uniform>
+		<uniform name="ScaleIn" type="float">1
+			<slider>0 2</slider>
+		</uniform>
+		<uniform name="ScaleOut" type="float">0.1
+			<slider>0 2</slider>
+		</uniform>
+	</program>
+
+
+	<program name="Ch16-wobble">
+		<textures>3Dlabs All -Disable -3DNoise -House</textures>
+		<models>Plane All -PointCloud -Teapot -Alien</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="WobbleTex">0</uniform>
+		<uniform name="Freq" type="vec2">
+			4.0 4.0
+			<slider>
+			0.0 0.0
+			10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Amplitude" type="vec2">
+			0.05 0.05
+			<slider>
+			0.0 0.0
+			0.25 0.25
+			</slider>
+		</uniform>
+		<uniform name="StartRad" type="float">
+			<motion length="1min">0 60</motion>
+		</uniform>
+	</program>
+
+
+	<program name="CH17-adaptiveaa">
+		<models>Plane All -PointCloud -Alien</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Frequency" type="float">
+			16.0
+			<slider>0.0 32.0</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH17-aabrick">
+		<models>All -PointCloud -Alien</models>
+		<uniform name="BrickColor">1.0 0.3 0.2</uniform>
+		<uniform name="MortarColor">0.85 0.86 0.84</uniform>
+		<uniform name="BrickSize" type="vec2">
+			0.30 0.15
+			<slider>
+			0.0 0.0
+			1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="BrickPct">0.90 0.85</uniform>
+		<uniform name="MortarPct">0.10 0.15</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH17-aacheck">
+		<models>Plane All -PointCloud -Alien</models>
+		<uniform name="Color1">1.0 1.0 1.0</uniform>
+		<uniform name="Color2">0.0 0.0 0.0</uniform>
+		<uniform name="AvgColor">0.5 0.5 0.5</uniform>
+		<uniform name="Frequency" type="float">
+			16.0
+			<slider>0.0 32.0</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH18-hatch">
+		<textures>3DNoise</textures>
+		<models>All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPosition" type="vec3">
+			4.0 4.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Swidth" type="float">
+			8.0
+			<slider>0.0 64.0</slider>
+		</uniform>
+		<uniform name="Noise">0</uniform>
+		<uniform name="Time" type="float">
+			<motion length="1min">0 60</motion>
+		</uniform>
+	</program>
+
+	<program name="CH18-Gooch">
+		<silhouette/>
+		<models>All -PointCloud -Alien -Plane</models>
+		<uniform name="SurfaceColor">0.75 0.75 0.75</uniform>
+		<uniform name="WarmColor">0.6 0.6 0.0</uniform>
+		<uniform name="CoolColor">0.0 0.0 0.6</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 10.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="DiffuseWarm" type="float">
+			<slider>
+				0 0.9
+			</slider>
+		</uniform>
+		<uniform name="DiffuseCool" type="float">
+			<slider>
+				0 0.9
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH18-mandel">
+		<models>Plane All -PointCloud -Alien</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="DiffuseContribution">0.8</uniform>
+		<uniform name="SpecularContribution">0.2</uniform>
+		<uniform name="Shininess">16.0</uniform>
+		<uniform name="MaxIterations" type="float">
+			50
+			<slider>0 80</slider>
+		</uniform>
+		<uniform name="Xcenter" type="float">
+			-0.0002
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Ycenter" type="float">
+			0.7383
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Zoom" type="float">
+			<motion length="20s">1 0</motion>
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="InnerColor">0.0 0.0 0.0</uniform>
+		<uniform name="OuterColor1">0.5 0.0 1.5</uniform>
+		<uniform name="OuterColor2">0.0 1.5 0.0</uniform>
+	</program>
+
+
+	<program name="CH18-julia">
+		<models>Plane All -PointCloud -Alien</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="DiffuseContribution">0.8</uniform>
+		<uniform name="SpecularContribution">0.2</uniform>
+		<uniform name="Shininess">16.0</uniform>
+		<uniform name="MaxIterations" type="float">
+			50
+			<slider>0 80</slider>
+		</uniform>
+		<uniform name="Xcenter" type="float">
+			0
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Ycenter" type="float">
+			0
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Zoom" type="float">
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="Creal" type="float">
+			0.32
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Cimag" type="float">
+			0.043
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="InnerColor">1.5 0.0 0.0</uniform>
+		<uniform name="OuterColor1">0.5 0.0 1.5</uniform>
+		<uniform name="OuterColor2">1.5 1.5 1.5</uniform>
+	</program>
+
+
+	<program name="CH19-interpSat">
+		<models>Plane All -PointCloud -Alien</models>
+		<textures stage="0">Hannah</textures>
+		<uniform name="Image">0</uniform>
+		<uniform name="Alpha" type="float">
+			1.0
+			<slider>0 2</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH19-interpBrt">
+		<models>Plane All -PointCloud -Alien</models>
+		<textures stage="0">Hannah</textures>
+		<uniform name="Image">0</uniform>
+		<uniform name="Alpha" type="float">
+			1.0
+			<slider>0 2</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH19-interpCon">
+		<models>Plane All -PointCloud -Alien</models>
+		<textures stage="0">Hannah</textures>
+		<uniform name="Image">0</uniform>
+		<uniform name="AvgLuminance">0.5 0.5 0.5</uniform>
+		<uniform name="Alpha" type="float">
+			1.0
+			<slider>0 2</slider>
+		</uniform>
+	</program>
+
+
+	<program name="CH19-interpShp">
+		<models>Plane All -PointCloud -Alien</models>
+		<textures stage="0">Hannah</textures>
+		<textures stage="1">HannahBlurry</textures>
+		<uniform name="Image">0</uniform>
+		<uniform name="Blurry">1</uniform>
+		<uniform name="Alpha" type="float">
+			1.0
+			<slider>0 2</slider>
+		</uniform>
+	</program>
+
+	<program name="CH19-neighborhoodAvg">
+		<models>Plane All -PointCloud -Alien</models>
+		<textures stage="0">Hannah</textures>
+		<uniform name="BaseImage">0</uniform>
+                <uniform name="KernelSize">9</uniform>
+                <uniform name="Offset[0]">-0.0019531 -0.0019531</uniform>
+                <uniform name="Offset[1]">-0.0019531  0</uniform>
+                <uniform name="Offset[2]">-0.0019531  0.0019531</uniform>
+                <uniform name="Offset[3]"> 0 -0.0019531</uniform>
+                <uniform name="Offset[4]"> 0  0</uniform>
+                <uniform name="Offset[5]"> 0  0.0019531</uniform>
+                <uniform name="Offset[6]"> 0.00195311 -0.0019531</uniform>
+                <uniform name="Offset[7]"> 0.0019531  0</uniform>
+                <uniform name="Offset[8]"> 0.0019531  0.0019531</uniform>
+		<uniform name="ScaleFactor"> 0.1111 0.1111 0.1111 0.1111</uniform>
+	</program>
+
+
+	<program name="CH19-GaussianBlur">
+		<models>Plane All -PointCloud -Alien</models>
+		<textures stage="0">Hannah</textures>
+                <uniform name="KernelSize">25</uniform>
+		<uniform name="BaseImage">0</uniform>
+
+                <uniform name="Offset[0]" >-0.0039063 -0.0039063</uniform>
+                <uniform name="Offset[1]" >-0.0039063 -0.0019531</uniform>
+                <uniform name="Offset[2]" >-0.0039063  0.0      </uniform>
+                <uniform name="Offset[3]" >-0.0039063  0.0019531</uniform>
+                <uniform name="Offset[4]" >-0.0039063  0.0039063</uniform>
+                <uniform name="Offset[5]" >-0.0019531 -0.0039063</uniform>
+                <uniform name="Offset[6]" >-0.0019531 -0.0019531</uniform>
+                <uniform name="Offset[7]" >-0.0019531  0.0      </uniform>
+                <uniform name="Offset[8]" >-0.0019531  0.0019531</uniform>
+                <uniform name="Offset[9]" >-0.0019531  0.0039063</uniform>
+                <uniform name="Offset[10]"> 0.0       -0.0039063</uniform>
+                <uniform name="Offset[11]"> 0.0       -0.0019531</uniform>
+                <uniform name="Offset[12]"> 0.0        0.0      </uniform>
+                <uniform name="Offset[13]"> 0.0        0.0019531</uniform>
+                <uniform name="Offset[14]"> 0.0        0.0039063</uniform>
+                <uniform name="Offset[15]"> 0.0019531 -0.0039063</uniform>
+                <uniform name="Offset[16]"> 0.0019531 -0.0019531</uniform>
+                <uniform name="Offset[17]"> 0.0019531  0.0      </uniform>
+                <uniform name="Offset[18]"> 0.0019531  0.0019531</uniform>
+                <uniform name="Offset[19]"> 0.0019531  0.0039063</uniform>
+                <uniform name="Offset[20]"> 0.0039063 -0.0039063</uniform>
+                <uniform name="Offset[21]"> 0.0039063 -0.0019531</uniform>
+                <uniform name="Offset[22]"> 0.0039063  0.0      </uniform>
+                <uniform name="Offset[23]"> 0.0039063  0.0019531</uniform>
+                <uniform name="Offset[24]"> 0.0039063  0.0039063</uniform>
+                <uniform name="KernelValue[0]" >0.003663 0.003663 0.003663 0.003663</uniform>
+                <uniform name="KernelValue[1]" >0.014652 0.014652 0.014652 0.014652</uniform>
+                <uniform name="KernelValue[2]" >0.025641 0.025641 0.025641 0.025641</uniform>
+                <uniform name="KernelValue[3]" >0.014652 0.014652 0.014652 0.014652</uniform>
+                <uniform name="KernelValue[4]" >0.003663 0.003663 0.003663 0.003663</uniform>
+                <uniform name="KernelValue[5]" >0.014652 0.014652 0.014652 0.014652</uniform>
+                <uniform name="KernelValue[6]" >0.0586081 0.0586081 0.0586081 0.0586081</uniform>
+                <uniform name="KernelValue[7]" >0.0952381 0.0952381 0.0952381 0.0952381</uniform>
+                <uniform name="KernelValue[8]" >0.0586081 0.0586081 0.0586081 0.0586081</uniform>
+                <uniform name="KernelValue[9]" >0.014652 0.014652 0.014652 0.014652</uniform>
+                <uniform name="KernelValue[10]">0.025641 0.025641 0.025641 0.025641</uniform>
+                <uniform name="KernelValue[11]">0.0952381 0.0952381 0.0952381 0.0952381</uniform>
+                <uniform name="KernelValue[12]">0.1501832 0.1501832 0.1501832 0.1501832</uniform>
+                <uniform name="KernelValue[13]">0.0952381 0.0952381 0.0952381 0.0952381</uniform>
+                <uniform name="KernelValue[14]">0.025641 0.025641 0.025641 0.025641</uniform>
+                <uniform name="KernelValue[15]">0.014652 0.014652 0.014652 0.014652</uniform>
+                <uniform name="KernelValue[16]">0.0586081 0.0586081 0.0586081 0.0586081</uniform>
+                <uniform name="KernelValue[17]">0.0952381 0.0952381 0.0952381 0.0952381</uniform>
+                <uniform name="KernelValue[18]">0.0586081 0.0586081 0.0586081 0.0586081</uniform>
+                <uniform name="KernelValue[19]">0.014652 0.014652 0.014652 0.014652</uniform>
+                <uniform name="KernelValue[20]">0.003663 0.003663 0.003663 0.003663</uniform>
+                <uniform name="KernelValue[21]">0.014652 0.014652 0.014652 0.014652</uniform>
+                <uniform name="KernelValue[22]">0.025641 0.025641 0.025641 0.025641</uniform>
+                <uniform name="KernelValue[23]">0.014652 0.014652 0.014652 0.014652</uniform>
+                <uniform name="KernelValue[24]">0.003663 0.003663 0.003663 0.003663</uniform>
+
+<!--
+                <uniform name="KernelValue[0]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[1]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[2]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[3]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[4]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[5]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[6]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[7]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[8]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[9]" >0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[10]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[11]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[12]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[13]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[14]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[15]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[16]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[17]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[18]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[19]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[20]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[21]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[22]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[23]">0.04 0.04 0.04 0.04</uniform>
+                <uniform name="KernelValue[24]">0.04 0.04 0.04 0.04</uniform>
+-->
+
+	</program>
+
+	<program name="CH19-unsharpMask">
+		<models>Plane All -PointCloud -Alien</models>
+		<textures stage="0">Hannah</textures>
+		<uniform name="BaseImage">0</uniform>
+                <uniform name="KernelSize">5</uniform>
+                <uniform name="Offset[0]">-0.0019531  0</uniform>
+                <uniform name="Offset[1]"> 0 -0.0019531</uniform>
+                <uniform name="Offset[2]"> 0  0</uniform>
+                <uniform name="Offset[3]"> 0  0.0019531</uniform>
+                <uniform name="Offset[4]"> 0.0019531  0</uniform>
+                <uniform name="KernelValue[0]" >-1.0 -1.0 -1.0 -1.0</uniform>
+                <uniform name="KernelValue[1]" >-1.0 -1.0 -1.0 -1.0</uniform>
+                <uniform name="KernelValue[2]" > 4.0  4.0  4.0  4.0</uniform>
+                <uniform name="KernelValue[3]" >-1.0 -1.0 -1.0 -1.0</uniform>
+                <uniform name="KernelValue[4]" >-1.0 -1.0 -1.0 -1.0</uniform>
+		<uniform name="ScaleFactor">0.5 0.5 0.5 0.5</uniform>
+	</program>
+
+
+</demo>

@@ -239,6 +239,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Downloads/glsldemo-src-3/expat-1.95.8-lib\"",
+					"\"$(SRCROOT)/../../../../../Downloads/glsldemo-src-3/glew/lib\"",
+					"\"$(SRCROOT)/../../../../../Downloads/glsldemo-src-3/wxMSW-2.4.2-3Dlabs-lib\"",
+				);
 				OTHER_LDFLAGS = (
 					"\"$(CINDER_PATH)/lib/libcinder_d.a\"",
 					"-lcurl",
@@ -265,6 +271,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Downloads/glsldemo-src-3/expat-1.95.8-lib\"",
+					"\"$(SRCROOT)/../../../../../Downloads/glsldemo-src-3/glew/lib\"",
+					"\"$(SRCROOT)/../../../../../Downloads/glsldemo-src-3/wxMSW-2.4.2-3Dlabs-lib\"",
+				);
 				OTHER_LDFLAGS = (
 					"\"$(CINDER_PATH)/lib/libcinder.a\"",
 					"-lcurl",

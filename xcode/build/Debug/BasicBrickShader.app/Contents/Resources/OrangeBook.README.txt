@@ -1,0 +1,9 @@
+The file "OrangeBook.xml" contains the XML code needed for the glsldemo application to execute many of the shaders from the book OpenGL Shading Language, 2nd Edition (aka the "Orange Book") on the 3Dlabs Wildcat Realizm family of graphics accelerators. This glsldemo program is quite flexible, still there are a few shaders from the Orange Book that are demonstrated in separate demo applications.
+
+The code for these shaders can be found in the folder "OrangeBook". With two exceptions, code for these shaders is identical to what is published in the Orange Book. The shaders that do image modification by interpolation and extrapolation have been changed somewhat to read the image out of texture memory rather than processing the image as it is being drawn. The earth with 3 textures fragment shader has been simplified somewhat by removing unnecessary code (changes to this shader also show up in the book's errata list at http://3dshaders.com).
+
+Licensing information for the shaders that are copyright 3Dlabs Inc. Ltd. can be found in the file 3Dlabs-license.txt.
+
+Licensing information for the shaders that are copyright Lightwork Design Ltd. can be found in the file  LightworkDesign-license.txt.
+
+Licensing information for the shaders that are copyright ATI Research, Inc. can be found in the file  ATI-license.txt.

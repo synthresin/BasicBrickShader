@@ -1,0 +1,720 @@
+<?xml version="1.0" ?>
+<demo folder="default">
+
+	<program name="Polkadot3D" stress="fragment">
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 4.0 0.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="SpecularContribution" type="float">0.36
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="Spacing" type="vec3">0.3 0.3 0.25<slider>0.2 0.2 0.2 0.4 0.4 0.4</slider></uniform>
+		<uniform name="DotSize" type="float">0.13<slider>0.1 0.2</slider></uniform>
+		<uniform name="ModelColor">0.75 0.2 0.1</uniform>		
+		<uniform name="PolkaDotColor">1.0 1.0 1.0</uniform>		
+	</program>
+
+
+	<program name="Toon">
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="Edge" type="float">
+			0.5
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="Phong" type="float">
+			0.98
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="DiffuseColor">0.0 0.25 1.0</uniform>
+		<uniform name="PhongColor">0.75 0.75 1.0</uniform>
+	</program>
+
+
+	<program name="VertexNoise" stress="vertex">
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="SurfaceColor">0.2 0.8 0.4</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 5.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="offset" type="vec3">0 0 0
+			<slider>-1 -1 -1 1 1 1</slider>
+			<motion length="1min">0 0 0 100 100 100</motion>
+		</uniform>
+		<uniform name="scaleIn" type="float">1
+			<slider>0 2</slider>
+		</uniform>
+		<uniform name="scaleOut" type="float">0.1
+			<slider>0 2</slider>
+		</uniform>
+	</program>
+
+
+	<program name="Inferno" stress="fragment">
+		<textures>3DNoise</textures>
+		<models>Klein All -PointCloud -Alien -BlobbyCloud -Teapot</models>
+		<uniform name="Scale" type="float">0.6</uniform>
+		<uniform name="Extent">0.7</uniform>
+		<uniform name="FireColor1">0.8 0.7 0.0</uniform>
+		<uniform name="FireColor2">0.6 0.1 0.0</uniform>
+		<uniform name="sampler3d">0</uniform>
+		<uniform name="Offset" type="float">
+			<slider>0 -1</slider>
+			<motion length="1s">0 -1</motion>
+		</uniform>
+	</program>
+
+
+	<program name="Brick" stress="fragment">
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="BrickColor">1.0 0.3 0.2</uniform>
+		<uniform name="MortarColor">0.85 0.86 0.84</uniform>
+		<uniform name="BrickSize" type="vec2">
+			0.30 0.15
+			<slider>
+			0.0 0.0
+			1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="BrickPct" type="vec2">
+			0.90 0.85
+			<slider>
+			0.0 0.0
+			1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="Cloud1" stress="fragment">
+		<textures>3DNoise</textures>
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.6
+			<slider>
+			0.0
+			1.0
+			</slider>
+		</uniform>
+		<uniform name="SkyColor">0.0 0.0 0.8</uniform>
+		<uniform name="CloudColor">0.8 0.8 0.8</uniform>
+		<uniform name="Noise">0</uniform>
+	</program>
+
+
+	<program name="Cloud2" stress="fragment">
+		<textures>3DNoise</textures>
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.6
+			<slider>
+			0.0
+			1.0
+			</slider>
+		</uniform>
+		<uniform name="SkyColor">0.0 0.0 0.8</uniform>
+		<uniform name="CloudColor">0.8 0.8 0.8</uniform>
+		<uniform name="Noise">0</uniform>
+	</program>
+
+
+	<program name="Fire" stress="fragment">
+		<textures>3DNoise</textures>
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="NoiseScale" type="float">
+			1.2
+			<slider>
+			0.0
+			2.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.4
+			<slider>
+			0.0
+			1.0
+			</slider>
+		</uniform>
+		<uniform name="Color1">0.8 0.7 0.0</uniform>
+		<uniform name="Color2">0.6 0.1 0.0</uniform>
+		<uniform name="Noise">0</uniform>
+	</program>
+
+
+	<program name="Wood1" stress="fragment">
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="GrainSizeRecip" type="float">1.0<slider>0 1</slider></uniform>
+		<uniform name="Scale" type="float">1.0<slider>0 1</slider></uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="DarkColor">0.6 0.3 0.1</uniform>
+		<uniform name="spread">0.15 0.075 0.0</uniform>
+	</program>
+
+
+	<program name="Wood2" stress="fragment">
+		<textures>3DNoise</textures>
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			2.0 <slider>0 4</slider>
+		</uniform>
+		<uniform name="LightWoodColor">0.6 0.3 0.1</uniform>
+		<uniform name="DarkWoodColor">0.4 0.2 0.07</uniform>
+		<uniform name="RingFreq" type="float">
+			4.0 <slider>0 10</slider>
+		</uniform>
+		<uniform name="NoiseScale" type="vec3">
+			0.5 0.1 0.1
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Noisiness"  type="float">
+			3.0
+			<slider>
+			0
+			6
+			</slider>
+		</uniform>
+		<uniform name="Noise">0</uniform>
+		<uniform name="GrainThreshold">0.5</uniform>
+		<uniform name="LightGrains">1.0</uniform>
+		<uniform name="GrainScale">27.0</uniform>
+		<!--uniform name="DarkGrains">0.0</uniform-->
+	</program>
+
+
+	<program name="Lattice" stress="fragment">
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPosition" type="vec3">
+			4.0 4.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="LightColor">0.9 0.8 0.7</uniform>
+		<uniform name="EyePosition">0.0 0.0 4.0</uniform>
+		<uniform name="Specular" type="vec3">
+			0.2 0.2 0.2
+			<slider>
+			0.0 0.0 0.0
+			1.0 1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="Ambient" type="vec3">
+			0.2 0.2 0.2
+			<slider>
+			0.0 0.0 0.0
+			1.0 1.0 1.0
+			</slider>
+		</uniform>
+		<uniform name="Kd" type="float">
+			0.8
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="SurfaceColor">0.9 0.7 0.25</uniform>
+		<uniform name="Scale" type="vec2">
+			10.0 10.0
+			<slider>
+			0.0 0.0
+			30.0 30.0
+			</slider>
+		</uniform>
+		<uniform name="Threshold" type="vec2">
+			0.13 0.13
+			<slider>
+			0.0 0.0
+			1.0 1.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="Eroded" stress="fragment">
+		<textures>3DNoise</textures>
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPosition">0.0 0.0 4.0</uniform>
+		<uniform name="Scale" type="float">
+		0.6
+		<slider>0.0 1.0</slider>
+		</uniform>
+		<uniform name="Offset" type="vec3">
+		<motion length="3s">
+			0 0.25 0
+			0 -0.45 0
+		</motion>
+		<motion length="1s">
+			0 -0.45 0
+			0 0.25 0
+		</motion>
+		</uniform>
+		<uniform name="sampler3d">0</uniform>
+	</program>
+
+
+	<program name="Granite" stress="fragment">
+		<textures>3DNoise</textures>
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Scale" type="float">
+			0.6
+			<slider>
+			0.0
+			2.0
+			</slider>
+		</uniform>
+		<uniform name="NoiseScale" type="float">
+			5.0 <slider>0 10</slider>
+		</uniform>
+		<uniform name="Noise">0</uniform>
+	</program>
+
+
+	<program name="Gooch">
+		<silhouette/>
+		<models>Klein All -Sphere -PointCloud -Alien -BlobbyCloud -Plane</models>
+		<uniform name="SurfaceColor">0.75 0.75 0.75</uniform>
+		<uniform name="WarmColor">0.6 0.6 0.0</uniform>
+		<uniform name="CoolColor">0.0 0.0 0.6</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 10.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="DiffuseWarm" type="float">
+			<slider>
+				0 0.9
+			</slider>
+		</uniform>
+		<uniform name="DiffuseCool" type="float">
+			<slider>
+				0 0.9
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="EnvMap" stress="fragment">
+		<textures mipmap="0">House</textures>
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="BaseColor">0.4 0.4 1.0</uniform>
+		<uniform name="MixRatio" type="float">
+			0.8
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="EnvMap">0</uniform>
+	</program>
+
+
+	<program name="Earth" stress="fragment">
+		<textures stage="0">Day</textures>
+		<textures stage="1">Night</textures>
+		<textures stage="2">Clouds</textures>
+		<models>Sphere Plane</models>
+		<uniform name="LightPosition" type="vec3">
+			3.0 0.0 -3.0
+			<slider>
+				-10 -10 -10
+				10 10 10
+			</slider>
+		</uniform>
+		<uniform name="EarthDay">0</uniform>
+		<uniform name="EarthNight">1</uniform>
+		<uniform name="EarthCloudGloss">2</uniform>
+	</program>
+
+
+	<program name="Mandel" stress="fragment">
+		<models>Plane All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="DiffuseContribution">0.8</uniform>
+		<uniform name="SpecularContribution">0.2</uniform>
+		<uniform name="Shininess">16.0</uniform>
+		<uniform name="MaxIterations" type="float">
+			50
+			<slider>0 80</slider>
+		</uniform>
+		<uniform name="Xcenter" type="float">
+			-0.75
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Ycenter" type="float">
+			0
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Zoom" type="float">
+			<motion length="3s">1 0.1</motion>
+			<motion length="1s">0.1 1</motion>
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="InnerColor">0.0 0.0 0.0</uniform>
+		<uniform name="OuterColor1">0.5 0.0 1.5</uniform>
+		<uniform name="OuterColor2">0.0 1.5 0.0</uniform>
+	</program>
+
+
+	<program name="Julia" stress="fragment">
+		<models>Plane All -PointCloud -Alien -BlobbyCloud</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="DiffuseContribution">0.8</uniform>
+		<uniform name="SpecularContribution">0.2</uniform>
+		<uniform name="Shininess">16.0</uniform>
+		<uniform name="MaxIterations" type="float">
+			50
+			<slider>0 80</slider>
+		</uniform>
+		<uniform name="Xcenter" type="float">
+			0
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Ycenter" type="float">
+			0
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Zoom" type="float">
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="Creal" type="float">
+			0.32
+			<motion length="3s">-0.5 0.5</motion>
+			<motion length="3s">0.5 -0.5</motion>
+			<slider>-2.5 2.5</slider>
+		</uniform>
+		<uniform name="Cimag" type="float">
+			0.043
+			<slider>-2.5 2.5</slider>
+			<motion length="1s">-0.5 0.5</motion>
+			<motion length="1s">0.5 -0.5</motion>
+		</uniform>
+		<uniform name="InnerColor">1.5 0.0 0.0</uniform>
+		<uniform name="OuterColor1">0.5 0.0 1.5</uniform>
+		<uniform name="OuterColor2">1.5 1.5 1.5</uniform>
+	</program>
+
+
+	<program name="Wobble" stress="fragment">
+		<textures mipmap="0">3Dlabs All -Disable -3DNoise -House</textures>
+		<models>Plane All -PointCloud -Teapot -Alien -BlobbyCloud</models>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="WobbleTex">0</uniform>
+		<uniform name="Freq" type="vec2">
+			4.0 4.0
+			<slider>
+			0.0 0.0
+			10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="Amplitude" type="vec2">
+			0.05 0.05
+			<slider>
+			0.0 0.0
+			0.25 0.25
+			</slider>
+		</uniform>
+		<uniform name="StartRad" type="float">
+			<motion length="1min">0 60</motion>
+		</uniform>
+	</program>
+
+
+	<program name="Skinning" stress="vertex">
+		<models>Alien</models>
+		<motion/>
+		<uniform name="SurfaceColor">0.2 1.0 0.0</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 5.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="Bumpmap" stress="fragment">
+		<tangents/>
+		<binormals/>
+		<models>All -Realizm -Alien -BlobbyCloud -PointCloud -External -Teapot</models>
+		<textures>3DlabsNormal</textures>
+		<uniform name="NormalMap">0</uniform>
+		<uniform name="BaseColor">0.8 0.7 0.3</uniform>
+		<uniform name="SpecularFactor" type="float">0.7
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="DiffuseFactor" type="float">0.7
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 5.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="TorusMorph" stress="vertex">
+		<models lod="64">Plane</models>
+		<uniform name="major" type="float">
+			0.8
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="minor" type="float">
+			0.2
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="blend" type="float">
+			0.5
+			<slider>0 1</slider>
+			<motion length="2s">0 1</motion>
+			<motion length="1s">1 1</motion>
+			<motion length="2s">1 0</motion>
+			<motion length="1s">0 0</motion>
+		</uniform>
+		<uniform name="SurfaceColor">1.0 0.2 0.0</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 5.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="SphereMorph" stress="vertex">
+		<models lod="64">Plane</models>
+		<uniform name="radius" type="float">
+			0.8
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="blend" type="float">
+			0.5
+			<slider>0 1</slider>
+			<motion length="2s">0 1</motion>
+			<motion length="1s">1 1</motion>
+			<motion length="2s">1 0</motion>
+			<motion length="1s">0 0</motion>
+		</uniform>
+		<uniform name="SurfaceColor">0.0 0.2 1.0</uniform>
+		<uniform name="LightPosition" type="vec3">
+			0.0 0.0 5.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+	</program>
+
+
+	<program name="ParticleSimple" stress="vertex">
+		<models>PointCloud</models>
+		<uniform name="Time" type="float">
+			<motion length="1000s">0 500</motion>
+		</uniform>
+		<uniform name="RepeatFactor" type="float">0.75</uniform>
+		<uniform name="Radius" type="float">1.25<slider>0 5</slider></uniform>
+		<uniform name="Acceleration" type="float">1<slider>-5 5</slider></uniform>
+	</program>
+
+
+	<program name="ParticleWave" stress="vertex">
+		<models>PointCloud</models>
+		<uniform name="time" type="float">
+			<motion length="2s">0 5</motion>
+			<slider>0 5</slider>
+		</uniform>
+	</program>
+
+
+	<program name="ParticleFountain" stress="vertex">
+		<models>PointCloud</models>
+		<uniform name="time" type="float">
+			<motion length="1000s">0 1000</motion>
+			<slider>0 10</slider>
+		</uniform>
+	</program>
+	
+	<program name="Glass" reflection="off">
+		<models>Klein All -PointCloud -Alien -BlobbyCloud</models>
+		<textures mipmap="0" stage="0">House</textures>
+		<textures mipmap="0" stage="1">Framebuffer</textures>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="BaseColor">0.4 0.4 1.0</uniform>
+		<uniform name="Depth" type="float">
+			0.1
+			<slider>0 0.3</slider>
+		</uniform>
+		<uniform name="MixRatio" type="float">
+			1.0
+			<slider>0 2</slider>
+		</uniform>
+		<uniform name="FrameWidth" type="float">255.0</uniform>
+		<uniform name="FrameHeight" type="float">255.0</uniform>
+		<uniform name="EnvMap">0</uniform>
+		<uniform name="RefractionMap">1</uniform>
+	</program>
+	
+	<program name="HeatHaze" reflection="off">
+		<textures stage="0">Framebuffer</textures>
+		<models>Plane All -Alien -BlobbyCloud -PointCloud</models>
+		<uniform name="FrameBuffer">0</uniform>
+		<uniform name="FrameWidth" type="float">255.0</uniform>
+		<uniform name="FrameHeight" type="float">255.0</uniform>
+		<uniform name="Frequency" type="float">
+			20
+			<slider>0 100</slider>
+		</uniform>
+		<uniform name="Speed" type="int">
+			1
+			<slider>0 10</slider>
+		</uniform>
+		<uniform name="Fade" type="float">
+			0.7
+			<slider>0 1</slider>
+		</uniform>
+		<uniform name="Offset" type="float">
+			0
+			<motion length="1s">0 6.2831</motion>
+		</uniform>
+	</program>
+
+	<program name="BlobbyCloud" reflection="on" stress="vertex">
+		<textures mipmap="0">House</textures>
+		<motion/>
+		<uniform name="EnvMap">0</uniform>
+		<models>BlobbyCloud</models>
+		<uniform name="RadiusOfInfluence" type="float">
+			0.25
+			<slider>0.1 1.0</slider>
+		</uniform>
+		<uniform name="BailOut" type="int">
+			20
+			<slider>10 30</slider>
+		</uniform>
+	</program>
+
+	<program name="Bubbles" reflection="on" stress="vertex">
+		<models>BlobbyCloud</models>
+		<textures mipmap="0" stage="0">House</textures>
+		<textures mipmap="0" stage="1">Framebuffer</textures>
+		<textures mipmap="0" stage="2">Rainbow</textures>
+		<motion/>
+		<uniform name="LightPos" type="vec3">
+			0.0 0.0 4.0
+			<slider>
+			-10.0 -10.0 -10.0
+			10.0 10.0 10.0
+			</slider>
+		</uniform>
+		<uniform name="BaseColor">1.0 1.0 1.0</uniform>
+		<uniform name="MixRatio" type="float">
+			1.0
+			<slider>0 2</slider>
+		</uniform>
+		<uniform name="FrameWidth" type="float">255.0</uniform>
+		<uniform name="FrameHeight" type="float">255.0</uniform>
+		<uniform name="EnvMap">0</uniform>
+		<uniform name="RefractionMap">1</uniform>
+		<uniform name="RainbowMap">2</uniform>
+		<uniform name="RadiusOfInfluence" type="float">
+			0.75
+			<slider>0.25 1.0</slider>
+		</uniform>
+		<uniform name="BailOut" type="int">
+			20
+			<slider>10 30</slider>
+		</uniform>
+	</program>
+
+</demo>
