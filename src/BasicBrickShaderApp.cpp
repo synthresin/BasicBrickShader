@@ -208,8 +208,6 @@ class BasicBrickShaderApp : public AppBasic {
     Vec3f mLightPos;
     float mCameraZ;
     
-    GLuint tex[2];    // Texture Object Array
-
 };
 
 
@@ -236,37 +234,6 @@ void BasicBrickShaderApp::setup()
 	gl::enableAlphaBlending();
     
     // 텍스쳐 오브젝트 생성
-    
-    Surface8u texImg1 = Surface8u( loadImage( loadResource( "rawTex1.jpg" ) ) );
-    Surface8u texImg2 = Surface8u( loadImage( loadResource( "rawTex2.png" ) ) );
-    
-    glActiveTexture(GL_TEXTURE0);
-    glGenTextures(2, tex);
-    glBindTexture(GL_TEXTURE_2D, tex[0]);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg1.getData());
-
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); // Linear Filtering
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // Linear Filtering
-    
-    
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, tex[1]);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg2.getData());
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); // Linear Filtering
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // Linear Filtering
-    
-    make3DNoiseTexture();
-    
-    glGenTextures(1, &noise3DTexName);
-    glActiveTexture(GL_TEXTURE6);
-    glBindTexture(GL_TEXTURE_3D, noise3DTexName);
-    glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER,GL_LINEAR); // Linear Filtering
-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER,GL_LINEAR); // Linear Filtering
-    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA, noise3DTexSize, noise3DTexSize, noise3DTexSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, noise3DTexPtr);
-    
     
     
     //glDisable(GL_TEXTURE_2D);
@@ -298,18 +265,19 @@ void BasicBrickShaderApp::draw()
     gl::setMatrices(mCam);
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
-    
-    mShader.bind();
-    mShader.uniform("LightPosition" , mLightPos);
-    mShader.uniform("tex", 0);
-    mShader.uniform("tex2", 1);
-    //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
     gl::drawSphere(Vec3f::zero(), 50.0f);
-    gl::pushMatrices();
-    gl::translate(Vec3f(100.0f, 0.0f, 0.0f));
-    gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
-    gl::popMatrices();
-    mShader.unbind();
+    
+//    mShader.bind();
+//    mShader.uniform("LightPosition" , mLightPos);
+//    mShader.uniform("tex", 0);
+//    mShader.uniform("tex2", 1);
+//    //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
+//    gl::drawSphere(Vec3f::zero(), 50.0f);
+//    gl::pushMatrices();
+//    gl::translate(Vec3f(100.0f, 0.0f, 0.0f));
+//    gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
+//    gl::popMatrices();
+//    mShader.unbind();
 }
 
 CINDER_APP_BASIC( BasicBrickShaderApp, RendererGl )
