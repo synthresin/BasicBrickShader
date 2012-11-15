@@ -16,5 +16,12 @@ void main() {
     vec3 finalColor = mix(color, color2, LightIntensity);
     gl_FragColor = vec4(finalColor,1.0);
     
+    vec4 colorA = texture2D(tex, TexCoord);
+    vec4 color2A = texture2D(tex2, TexCoord);
+    
+    vec4 finalColorA = mix(colorA, color2A, LightIntensity);
+    gl_FragColor = vec4(finalColorA);
+    gl_FragColor = vec4(colorA);
+    
     
 }

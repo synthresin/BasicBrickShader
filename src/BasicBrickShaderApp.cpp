@@ -266,7 +266,7 @@ void BasicBrickShaderApp::setup()
             * (noise2DTexPtr + pos ) = (GLubyte) val;   // R
             * (noise2DTexPtr + pos + 1 ) = (GLubyte) val;   // G
             * (noise2DTexPtr + pos + 2 ) = (GLubyte) val;   // B
-            * (noise2DTexPtr + pos + 3 ) = (GLubyte) 255.0;   // A
+            * (noise2DTexPtr + pos + 3 ) = (GLubyte) val;   // A
         }
     }
     
