@@ -2,6 +2,8 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Camera.h"
 #include "cinder/gl/GlslProg.h"
+#include "cinder/Surface.h"
+#include "cinder/ImageIo.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -18,6 +20,8 @@ class BasicBrickShaderApp : public AppBasic {
     gl::GlslProg mShader;
     Vec3f mLightPos;
     float mCameraZ;
+    
+    GLuint tex1;
 };
 
 void BasicBrickShaderApp::setup()
@@ -33,10 +37,26 @@ void BasicBrickShaderApp::setup()
         std::cout << "Unable to load shader" << std::endl;
     }
     
-    mLightPos = Vec3f(0.0f,0.0f, 100.0f);
+    
     gl::enableDepthWrite();
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
+    
+    // 텍스쳐 오브젝트 생성
+    
+    Surface8u texImg1 = Surface8u( loadImage( loadResource( "rawTex1.jpg" ) ) );
+
+    glGenTextures(1, &tex1);
+    glBindTexture(GL_TEXTURE_2D, tex1);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg1.getData());
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); // Linear Filtering
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // Linear Filtering
+    glEnable(GL_TEXTURE_2D);
+
+    
+    
+    
+    mLightPos = Vec3f(0.0f,0.0f, 200.0f);
     
 }
 
@@ -59,11 +79,17 @@ void BasicBrickShaderApp::draw()
     gl::setMatrices(mCam);
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
-    mShader.bind();
-    mShader.uniform("LightPosition" , mLightPos);
-    gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
-    //gl::drawSphere(Vec3f::zero(), 50.0f);
-    mShader.unbind();
+    gl::drawSphere(Vec3f::zero(), 50.0f);
+    
+//    mShader.bind();
+//    mShader.uniform("LightPosition" , mLightPos);
+//    //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
+//    gl::drawSphere(Vec3f::zero(), 50.0f);
+//    gl::pushMatrices();
+//    gl::translate(Vec3f(100.0f, 0.0f, 0.0f));
+//    gl::drawSphere(Vec3f::zero(), 50.0f);
+//    gl::popMatrices();
+//    mShader.unbind();
 }
 
 CINDER_APP_BASIC( BasicBrickShaderApp, RendererGl )
