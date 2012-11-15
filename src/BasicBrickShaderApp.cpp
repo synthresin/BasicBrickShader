@@ -21,7 +21,8 @@ class BasicBrickShaderApp : public AppBasic {
     Vec3f mLightPos;
     float mCameraZ;
     
-    GLuint tex1;
+    GLuint tex1;    // Texture Object
+    GLuint tex2;    // Texture Object2
 };
 
 void BasicBrickShaderApp::setup()
@@ -45,13 +46,30 @@ void BasicBrickShaderApp::setup()
     // 텍스쳐 오브젝트 생성
     
     Surface8u texImg1 = Surface8u( loadImage( loadResource( "rawTex1.jpg" ) ) );
-
+    Surface8u texImg2 = Surface8u( loadImage( loadResource( "rawTex2.png" ) ) );
+    
     glGenTextures(1, &tex1);
     glBindTexture(GL_TEXTURE_2D, tex1);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg1.getData());
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); // Linear Filtering
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // Linear Filtering
+    
+    glBindTexture(GL_TEXTURE_2D, tex2);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg2.getData());
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); // Linear Filtering
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // Linear Filtering
+    
+    glBindTexture(GL_TEXTURE_2D, tex1);
+    glBindTexture(GL_TEXTURE_2D, tex2);
+    
     glEnable(GL_TEXTURE_2D);
+    
+    
+    
+    
+    
+    //glDisable(GL_TEXTURE_2D);
+
 
     
     
