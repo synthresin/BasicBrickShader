@@ -270,6 +270,11 @@ void BasicBrickShaderApp::setup()
         }
     }
     
+    // 생성되는 3d 텍스쳐 데이터
+    
+    make3DNoiseTexture();
+    
+    
     // 텍스쳐 오브젝트 생성
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(2, noise2DTexName);
