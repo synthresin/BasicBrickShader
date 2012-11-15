@@ -276,19 +276,25 @@ void BasicBrickShaderApp::setup()
     
     
     // 텍스쳐 오브젝트 생성
-    glActiveTexture(GL_TEXTURE0);
     glGenTextures(2, noise2DTexName);
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, noise2DTexName[0]);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.getWidth(), surface.getHeight(), 0, GL_RGB, GL_UNSIGNED_BYTE, surface.getData());
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, noise2DTexSize, noise2DTexSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, noise2DTexPtr);
     
+
+    glGenTextures(1, &noise3DTexName);
     glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, noise2DTexName[1]);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.getWidth(), surface.getHeight(), 0, GL_RGB, GL_UNSIGNED_BYTE, surface.getData());
+    glBindTexture(GL_TEXTURE_3D, noise3DTexName);
+    glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA, noise3DTexSize, noise3DTexSize, noise3DTexSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, noise3DTexPtr);
+    
 
 
 
@@ -323,7 +329,7 @@ void BasicBrickShaderApp::draw()
       mShader.bind();
       mShader.uniform("LightPosition" , mLightPos);
       mShader.uniform("tex", 0);
-      mShader.uniform("tex2", 1);
+      mShader.uniform("tex2", 0);
     //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
       gl::drawSphere(Vec3f::zero(), 50.0f);
       gl::pushMatrices();
