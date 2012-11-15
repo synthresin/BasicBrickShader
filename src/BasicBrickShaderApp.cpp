@@ -50,14 +50,15 @@ void BasicBrickShaderApp::setup()
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(2, tex);
     glBindTexture(GL_TEXTURE_2D, tex[0]);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg2.getData());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg1.getData());
+
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); // Linear Filtering
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // Linear Filtering
     
     
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, tex[1]);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg1.getData());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 2048, 1024, 0, GL_RGB, GL_UNSIGNED_BYTE, texImg2.getData());
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); // Linear Filtering
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // Linear Filtering
     
@@ -71,7 +72,7 @@ void BasicBrickShaderApp::setup()
     
     
     
-    mLightPos = Vec3f(0.0f,0.0f, 200.0f);
+    mLightPos = Vec3f(0.0f,0.0f, 300.0f);
     
 }
 
@@ -97,12 +98,13 @@ void BasicBrickShaderApp::draw()
     
     mShader.bind();
     mShader.uniform("LightPosition" , mLightPos);
-    mShader.uniform("tex", 1);
+    mShader.uniform("tex", 0);
+    mShader.uniform("tex2", 1);
     //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
     gl::drawSphere(Vec3f::zero(), 50.0f);
     gl::pushMatrices();
     gl::translate(Vec3f(100.0f, 0.0f, 0.0f));
-    gl::drawSphere(Vec3f::zero(), 50.0f);
+    gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
     gl::popMatrices();
     mShader.unbind();
 }
