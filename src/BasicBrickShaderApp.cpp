@@ -4,6 +4,7 @@
 #include "cinder/gl/GlslProg.h"
 #include "cinder/Surface.h"
 #include "cinder/ImageIo.h"
+#include "cinder/Perlin.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -195,6 +196,15 @@ void make3DNoiseTexture()
 }
 
 
+
+
+
+
+
+
+
+
+
 class BasicBrickShaderApp : public AppBasic {
   public:
 	void setup();
@@ -207,6 +217,11 @@ class BasicBrickShaderApp : public AppBasic {
     gl::GlslProg mShader;
     Vec3f mLightPos;
     float mCameraZ;
+    Perlin mPerlin;
+    
+    GLubyte     *noise2DTexPtr;
+    GLuint      noise2DTexName[2];
+    int         noise2DTexSize;
     
 };
 
@@ -233,11 +248,44 @@ void BasicBrickShaderApp::setup()
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
     
+    // 표면
+    
+
+    Surface8u surface = Surface8u( loadImage( loadResource("rawTex1.jpg") ) );
+    
+    // 생성되는 표면
+    
+    noise2DTexSize = 128;
+    noise2DTexPtr = (GLubyte *) malloc(noise2DTexSize * noise2DTexSize * 4);
+    
+    for (int i = 0; i < noise2DTexSize; ++i) {
+        for(int j =0; j < noise2DTexSize; ++j) {
+            float val = (mPerlin.fBm(Vec2f(i * 0.1, j * 0.1)) + 1) / 2 * 255.0;
+            
+            int pos = (noise2DTexSize * i + j ) * 4;
+            * (noise2DTexPtr + pos ) = (GLubyte) val;   // R
+            * (noise2DTexPtr + pos + 1 ) = (GLubyte) val;   // G
+            * (noise2DTexPtr + pos + 2 ) = (GLubyte) val;   // B
+            * (noise2DTexPtr + pos + 3 ) = (GLubyte) 255.0;   // A
+        }
+    }
+    
     // 텍스쳐 오브젝트 생성
+    glActiveTexture(GL_TEXTURE0);
+    glGenTextures(2, noise2DTexName);
+    glBindTexture(GL_TEXTURE_2D, noise2DTexName[0]);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.getWidth(), surface.getHeight(), 0, GL_RGB, GL_UNSIGNED_BYTE, surface.getData());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, noise2DTexSize, noise2DTexSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, noise2DTexPtr);
     
-    
-    //glDisable(GL_TEXTURE_2D);
-    
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, noise2DTexName[1]);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.getWidth(), surface.getHeight(), 0, GL_RGB, GL_UNSIGNED_BYTE, surface.getData());
+
+
 
     
     
@@ -265,19 +313,19 @@ void BasicBrickShaderApp::draw()
     gl::setMatrices(mCam);
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
-    gl::drawSphere(Vec3f::zero(), 50.0f);
+    //gl::drawSphere(Vec3f::zero(), 50.0f);
     
-//    mShader.bind();
-//    mShader.uniform("LightPosition" , mLightPos);
-//    mShader.uniform("tex", 0);
-//    mShader.uniform("tex2", 1);
-//    //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
-//    gl::drawSphere(Vec3f::zero(), 50.0f);
-//    gl::pushMatrices();
-//    gl::translate(Vec3f(100.0f, 0.0f, 0.0f));
-//    gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
-//    gl::popMatrices();
-//    mShader.unbind();
+      mShader.bind();
+      mShader.uniform("LightPosition" , mLightPos);
+      mShader.uniform("tex", 0);
+      mShader.uniform("tex2", 1);
+    //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
+      gl::drawSphere(Vec3f::zero(), 50.0f);
+      gl::pushMatrices();
+      gl::translate(Vec3f(100.0f, 0.0f, 0.0f));
+      gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
+      gl::popMatrices();
+      mShader.unbind();
 }
 
 CINDER_APP_BASIC( BasicBrickShaderApp, RendererGl )
