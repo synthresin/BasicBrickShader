@@ -1,6 +1,7 @@
 #version 120
 
-varying float   LightIntensity;
+varying float       LightIntensity;
+uniform sampler2D   tex;
 
 void main() {
     
