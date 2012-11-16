@@ -9,12 +9,11 @@ uniform vec3        CloudColor;
 
 
 void main() {
-    vec4 noisevec = texture3D(Noise, MCPosition);
+    float NoiseScale = 1;
+    vec4 noisevec = texture3D(Noise, NoiseScale * MCPosition);
     
-    float intensity = abs(noisevec[0] - 0.25) + abs(noisevec[1] - 0.125) + abs(noisevec[2] - 0.0625) + abs(noisevec[3]-0.03125);
+    float intensity = min(1.0, noisevec[3] * 18.0);
     
-    float sineval = sin(MCPosition.y * 6.0 + intensity * 12.0) * 0.5 + 0.5;
-    
-    vec3 color = mix(SkyColor, CloudColor, sineval) * LightIntensity;
+    vec3 color = vec3(intensity * LightIntensity);
     gl_FragColor = vec4(color, 1.0);
 }
