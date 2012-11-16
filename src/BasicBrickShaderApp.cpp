@@ -226,6 +226,7 @@ class BasicBrickShaderApp : public AppBasic {
     float mScale;
     Vec3f   mSkyColor;
     Vec3f   mCloudColor;
+    Vec3f   mOffset;
 };
 
 
@@ -309,6 +310,7 @@ void BasicBrickShaderApp::setup()
     mScale = 0.02;
     mSkyColor = Vec3f(0.0, 0.0, 0.8);
     mCloudColor = Vec3f(0.8, 0.8, 0.8);
+    mOffset = Vec3f::zero();
     
 }
 
@@ -324,6 +326,8 @@ void BasicBrickShaderApp::mouseMove(MouseEvent event)
 void BasicBrickShaderApp::update()
 {
     mCam.lookAt(Vec3f(100.0f,100.0f, mCameraZ), Vec3f::zero(), Vec3f::yAxis());
+    float m = 0.1 * getElapsedSeconds();
+    mOffset = Vec3f(m,m,m);
 }
 
 void BasicBrickShaderApp::draw()
@@ -339,6 +343,7 @@ void BasicBrickShaderApp::draw()
     mShader.uniform("Noise", 1);
     mShader.uniform("SkyColor", mSkyColor);
     mShader.uniform("CloudColor", mCloudColor);
+    mShader.uniform("Offset", mOffset);
     
     //gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
       gl::drawSphere(Vec3f::zero(), 50.0f);
