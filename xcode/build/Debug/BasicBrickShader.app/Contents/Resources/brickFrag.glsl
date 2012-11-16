@@ -13,6 +13,6 @@ void main() {
     
     float intensity = (noisevec[0] + noisevec[1] + noisevec[2] + noisevec[3] + 0.03125) * 1.5;
     
-    vec3 color = mix(SkyColor, CloudColor, intensity);// * LightIntensity;
+    vec3 color = mix(SkyColor, CloudColor, intensity) * LightIntensity;
     gl_FragColor = vec4(color, 1.0);
 }
