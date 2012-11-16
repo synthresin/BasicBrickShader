@@ -13,7 +13,7 @@ void main() {
     vec3 ecPosition = vec3(gl_ModelViewMatrix * gl_Vertex);
     MCPosition = vec3(gl_Vertex) * Scale;
     vec3 tnorm = normalize(vec3(gl_NormalMatrix * gl_Normal));
-    LightIntensity = max(dot( normalize(ecLight - ecPosition), tnorm ), 0.0);
+    LightIntensity = dot( normalize(ecLight - ecPosition), tnorm );
     LightIntensity *= 1.5;
     gl_Position = ftransform();
 }

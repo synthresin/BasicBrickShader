@@ -307,8 +307,8 @@ void BasicBrickShaderApp::setup()
     mLightPos = Vec3f(0.0f,0.0f, 300.0f);
     
     mScale = 0.02;
-    mSkyColor = Vec3f(0.0, 0.0, 0.8);
-    mCloudColor = Vec3f(0.8, 0.8, 0.8);
+    mSkyColor = Vec3f(0.8, 0.7, 0.0);
+    mCloudColor = Vec3f(0.6, 0.1, 0.0);
     
 }
 
