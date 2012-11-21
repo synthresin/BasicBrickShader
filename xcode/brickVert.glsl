@@ -24,10 +24,13 @@ vec3 sphere(vec2 domain) {
 void main() {
     vec2 po = gl_Vertex.xy * TWO_PI;    // 큐브의 점에 파이를 곱한다?
     vec3 normal = sphere(po);
+    normal = gl_Normal;
     vec3 ro = Radius * normal;
     vec3 vertex = ro;
     
-    normal = mix(gl_Normal, normal, Blend);
+    vertex = gl_Vertex.xyz * 2;
+    
+    //normal = mix(gl_Normal, normal, Blend);
     vertex = mix(gl_Vertex.xyz, vertex, Blend);
     
     normal = normalize(gl_NormalMatrix * normal );
