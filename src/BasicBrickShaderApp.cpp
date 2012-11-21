@@ -8,7 +8,7 @@
 #define BOX_NUM 500
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
-#define FBO_RES 2
+#define FBO_RES 1
 
 using namespace ci;
 using namespace ci::app;
@@ -23,20 +23,29 @@ class BasicBrickShaderApp : public AppBasic {
 	void mouseDown( MouseEvent event );
     void mouseMove( MouseEvent event );
     void drawIntoFbo();
+    void applyEffectToFbo();
 	void update();
 	void draw();
     
     
     
-    // MEMBER VARIABLES
+    // MEMBER VARIABLES FOR A SCENE
     CameraPersp mCam;
-    gl::GlslProg mShader;
+    
     Vec3f mLightPos;
     float mCameraZ;
     
     Vec3f mRandVecs[BOX_NUM];
     
+    
+    // SHADERS
+    gl::GlslProg mShader;
+    gl::GlslProg mEffectShader;
+    
+    // FBOS
+    
     gl::Fbo mFbo;
+    gl::Fbo mEffectFbo;
 };
 
 void BasicBrickShaderApp::prepareSettings(Settings *settings)
@@ -61,6 +70,17 @@ void BasicBrickShaderApp::setup()
         std::cout << "Unable to load shader" << std::endl;
     }
     
+    // 이펙트 셰이더
+    
+    try {
+        mEffectShader = gl::GlslProg( loadResource( "passThru.vert" ), loadResource( "passThru.frag" ) );
+    } catch (gl::GlslProgCompileExc &exc) {
+        std::cout << "Shader compile error: " << std::endl;
+        std::cout << exc.what() << std::endl;
+    } catch (...) {
+        std::cout << "Unable to load shader" << std::endl;
+    }
+    
     
     // 빛의 위치 설정
     mLightPos = Vec3f(0.0f,0.0f, 300.0f);
@@ -68,16 +88,17 @@ void BasicBrickShaderApp::setup()
 	gl::enableDepthRead();
 	gl::enableAlphaBlending();
     
-    // 박스들의 위치 설정
-    
+    // 박스들의 위치 설정 
+
     for (int i =0; i< BOX_NUM; i++) {
         mRandVecs[i] = Rand::randVec3f()* Rand::randInt(1, 300);
     }
     
     
-    // FBO 설정
+    // SETUP FBO
     
     mFbo = gl::Fbo(SCREEN_WIDTH/FBO_RES, SCREEN_HEIGHT/FBO_RES);
+    mEffectFbo = gl::Fbo(SCREEN_WIDTH/FBO_RES, SCREEN_HEIGHT/FBO_RES);
     
     
 }
@@ -101,6 +122,8 @@ void BasicBrickShaderApp::drawIntoFbo()
     mCam.setPerspective(75, mFbo.getAspectRatio(), 50.0f, 5000.0f);
     mCam.lookAt(Vec3f(200.0f,200.0f, mCameraZ), Vec3f::zero(), Vec3f::yAxis());
     
+    gl::setMatrices(mCam);
+    
     float t = ( sinf(getElapsedSeconds() * 5) + 1 )/ 2.0;
     
     mShader.bind();
@@ -121,29 +144,46 @@ void BasicBrickShaderApp::drawIntoFbo()
     mFbo.unbindFramebuffer();
 }
 
+void BasicBrickShaderApp::applyEffectToFbo()
+{
+    mEffectFbo.bindFramebuffer();
+    gl::clear( Color( 0, 0, 0 ) );
+    gl::setMatricesWindow(getWindowSize(), false);
+    gl::setViewport(getWindowBounds());
+    
+    gl::color(1.0, 1.0, 1.0);
+    mFbo.getTexture().enableAndBind();
+    
+    mEffectShader.bind();
+    mEffectShader.uniform("tex0", 0);
+    mEffectShader.uniform("resolution", getWindowSize());
+    mEffectShader.uniform("time", (float)getElapsedSeconds());
+    gl::drawSolidRect(getWindowBounds());
+    mEffectShader.unbind();
+    mEffectFbo.unbindFramebuffer();
+}
+
 
 void BasicBrickShaderApp::update()
 {
-    //drawIntoFbo();
-    
-    //mCam.setPerspective(75, getWindowAspectRatio(), 50.0f, 5000.0f);
-    //mCam.lookAt(Vec3f(200.0f,200.0f, mCameraZ), Vec3f::zero(), Vec3f::yAxis());
+    drawIntoFbo();
+    applyEffectToFbo();
 }
 
 
 
 void BasicBrickShaderApp::draw()
 {
-    gl::clear( ColorA( 0, 0, 0, 0 ), true );
-    gl::setMatricesWindowPersp(getWindowSize(), false);
+   
+    
+    gl::clear( Color( 0, 0, 0 ) );
+    gl::setMatricesWindow(getWindowSize(), false);
     gl::setViewport(getWindowBounds());
     
-    gl::color(1.0, 0.0, 0.0);
-    gl::disable(GL_TEXTURE_2D);
-    //mFbo.getTexture().enableAndBind();
+    gl::color(1.0, 1.0, 1.0);
+    mEffectFbo.getTexture().enableAndBind();
     
-    gl::drawSolidCircle(getWindowCenter(), 50.0f);
-    //gl::drawSolidRect(getWindowBounds());
+    gl::drawSolidRect(getWindowBounds());
 }
 
 CINDER_APP_BASIC( BasicBrickShaderApp, RendererGl )
