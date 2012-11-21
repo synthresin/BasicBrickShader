@@ -56,11 +56,15 @@ void BasicBrickShaderApp::update()
 
 void BasicBrickShaderApp::draw()
 {
+    float t = ( sinf(getElapsedSeconds()) + 1 )/ 2.0;
     gl::setMatrices(mCam);
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     mShader.bind();
     mShader.uniform("LightPosition" , mLightPos);
+    mShader.uniform("SurfaceColor" , Vec3f(0.8, 0.4, 0.6));
+    mShader.uniform("Radius" , 50.0f);
+    mShader.uniform("Blend" , t);
     gl::drawCube(Vec3f::zero(), Vec3f(50.0f,50.0f,50.0f));
     //gl::drawSphere(Vec3f::zero(), 50.0f);
     mShader.unbind();
