@@ -73,7 +73,7 @@ void BasicBrickShaderApp::setup()
     // 이펙트 셰이더
     
     try {
-        mEffectShader = gl::GlslProg( loadResource( "passThru.vert" ), loadResource( "passThru.frag" ) );
+        mEffectShader = gl::GlslProg( loadResource( "passThru.vert" ), loadResource( "radialBlur.glsl" ) );
     } catch (gl::GlslProgCompileExc &exc) {
         std::cout << "Shader compile error: " << std::endl;
         std::cout << exc.what() << std::endl;
@@ -156,7 +156,7 @@ void BasicBrickShaderApp::applyEffectToFbo()
     
     mEffectShader.bind();
     mEffectShader.uniform("tex0", 0);
-    mEffectShader.uniform("resolution", getWindowSize());
+    mEffectShader.uniform("resolution", Vec2f(SCREEN_WIDTH, SCREEN_HEIGHT));
     mEffectShader.uniform("time", (float)getElapsedSeconds());
     gl::drawSolidRect(getWindowBounds());
     mEffectShader.unbind();

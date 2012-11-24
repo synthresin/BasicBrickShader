@@ -23,6 +23,7 @@
 		C61B3ADD164B9ACC0019C69E /* brickFrag.glsl in Resources */ = {isa = PBXBuildFile; fileRef = C61B3ADC164B9ACC0019C69E /* brickFrag.glsl */; };
 		C64CB223165C8DD900B9C85A /* passThru.vert in Sources */ = {isa = PBXBuildFile; fileRef = C64CB222165C8DD900B9C85A /* passThru.vert */; };
 		C64CB226165C8DE100B9C85A /* passThru.frag in Sources */ = {isa = PBXBuildFile; fileRef = C64CB225165C8DE100B9C85A /* passThru.frag */; };
+		C6C6EE1A1660BC7500767193 /* radialBlur.glsl in Resources */ = {isa = PBXBuildFile; fileRef = C6C6EE191660BC7500767193 /* radialBlur.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		C61B3ADC164B9ACC0019C69E /* brickFrag.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = brickFrag.glsl; sourceTree = "<group>"; };
 		C64CB222165C8DD900B9C85A /* passThru.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = passThru.vert; sourceTree = "<group>"; };
 		C64CB225165C8DE100B9C85A /* passThru.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = passThru.frag; sourceTree = "<group>"; };
+		C6C6EE191660BC7500767193 /* radialBlur.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = radialBlur.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				C61B3ADA164B9ABC0019C69E /* brickVert.glsl */,
 				C64CB222165C8DD900B9C85A /* passThru.vert */,
 				C64CB225165C8DE100B9C85A /* passThru.frag */,
+				C6C6EE191660BC7500767193 /* radialBlur.glsl */,
 				C61B3ADC164B9ACC0019C69E /* brickFrag.glsl */,
 			);
 			name = Resources;
@@ -206,6 +209,7 @@
 				00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */,
 				C61B3ADB164B9ABC0019C69E /* brickVert.glsl in Resources */,
 				C61B3ADD164B9ACC0019C69E /* brickFrag.glsl in Resources */,
+				C6C6EE1A1660BC7500767193 /* radialBlur.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
